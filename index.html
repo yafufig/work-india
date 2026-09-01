@@ -9,14 +9,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="wi.css">
+<script src="wi.js" defer></script>
 <script>
-  (function(){try{var t=localStorage.getItem('wi-theme');if(t){document.documentElement.setAttribute('data-theme',t)}else{document.documentElement.removeAttribute('data-theme')}}catch(e){}})();
+  (function(){document.documentElement.className+=' js';try{var t=localStorage.getItem('wi-theme');if(t){document.documentElement.setAttribute('data-theme',t)}else{document.documentElement.removeAttribute('data-theme')}}catch(e){}})();
 </script>
 </head>
 <body>
 
 <!-- ==================== ШАПКА ==================== -->
-<header class="topbar">
+<header class="topbar" data-enter="0">
   <div class="topbar-in">
     <a class="brand" href="index.html">
       <span class="brand-mark" aria-hidden="true">WI</span>
@@ -43,14 +44,14 @@
   <div class="shell hero-grid">
 
     <div>
-      <span class="eyebrow">Ассистент на английском и хинди <b>अंग्रेज़ी और हिंदी</b></span>
-      <h1>Один ассистент на весь путь — от вакансии в Индии до <em>второго года работы в России</em></h1>
-      <p class="hero-lede">
+      <span class="eyebrow" data-enter="140">Ассистент на английском и хинди <b>अंग्रेज़ी और हिंदी</b></span>
+      <h1 data-enter="230">Один ассистент — от вакансии в Индии до <em>второго года</em> работы в России</h1>
+      <p class="hero-lede" data-enter="370">
         Work India читает документы, которые человек не может прочитать сам, объясняет,
         что от него хочет бригадир, и считает, сколько на самом деле останется на руках
         после жилья и налогов. Каждый день, а не один раз до оффера.
       </p>
-      <div class="hero-cta">
+      <div class="hero-cta" data-enter="490">
         <a class="btn btn--primary" href="#proto">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
           Смотреть прототип
@@ -61,48 +62,180 @@
         </a>
       </div>
 
-      <dl class="hero-facts">
+      <dl class="hero-facts" data-enter="610">
         <div><dt>Кто пользуется</dt><dd>Специалисты и студенты из Индии</dd></div>
         <div><dt>Где начинаем</dt><dd>Те, кто уже в России</dd></div>
         <div><dt>Частота</dt><dd>Каждая смена, а не раз в год</dd></div>
       </dl>
     </div>
 
-    <!-- ПОДПИСЬ СТРАНИЦЫ: разрыв между «что он видит» и «что он понимает» -->
-    <div class="gap">
-      <div class="gap-card">
-        <div class="gap-head">
-          <span class="tag">Что он видит</span>
-          <span class="dot-row" aria-hidden="true"><i></i><i></i><i></i></span>
-        </div>
+    <!-- ЖИВОЙ ПРОТОТИП: приложение проигрывает сценарий -->
+    <div class="demo" data-scene data-enter="330">
+      <p class="demo-cap" role="img" aria-label="Демонстрация: приложение распознаёт расчётный листок, находит расхождение в числе смен и готовит вопрос мастеру на русском языке; во второй сцене переводит объявление со стенда с учётом графика работы."></p>
 
-        <div class="scan" aria-label="Фрагмент расчётного листа на русском языке">
-          <div class="scan-title">Расчётный листок · июнь</div>
-          <div class="scan-row"><span>Оплата по часовой ставке</span><span>45 120,00</span></div>
-          <div class="scan-row"><span>Доплата за ночные часы</span><span>4 380,00</span></div>
-          <div class="scan-row mark"><span>Отработано смен</span><span>21</span></div>
-          <div class="scan-row"><span>НДФЛ 13 %</span><span>−6 435,00</span></div>
-          <div class="scan-row"><span>Удержание за общежитие</span><span>−6 500,00</span></div>
-          <div class="scan-row scan-total"><span>К выплате</span><span>36 565,00</span></div>
-        </div>
+      <div class="demo-frame" aria-hidden="true">
+        <div class="demo-stage">
 
-        <div class="gap-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
-          Что он понимает через Work India
-        </div>
+          <!-- ── АКТ 1 · РАСЧЁТНЫЙ ЛИСТОК ───────────────────────── -->
+          <section class="act" data-act data-dur="12200" data-pause-ms="900"
+                   data-phases="0:shot,700:scan,2400:read,3100:pan,4300:focus,5500:explain,7600:flag,8900:ask,11800:out"
+                   aria-label="Разбор расчётного листка">
 
-        <div class="answer">
-          <p class="answer-line">You were paid for <b>21 shifts</b>. Your roster for June shows <b>23</b>.</p>
-          <p class="answer-line hi">जून में आपकी 23 शिफ़्ट थीं, भुगतान 21 का हुआ है।</p>
-          <p class="answer-line" style="font-size:14.5px;color:var(--ink-2)">
-            ₽6 500 — это удержание за общежитие. По вашему договору оно должно быть
-            фиксированным: сверьте с пунктом 4.2.
-          </p>
-          <div class="flag">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21 20H3Z"/><path d="M12 9.5v4.5M12 17h.01"/></svg>
-            <p><b>Расхождение на 2 смены.</b> Мы подготовили вопрос бригадиру на русском — отправьте одним нажатием.</p>
-          </div>
+            <div class="act-head">
+              <span class="tag">Что он видит</span>
+              <span class="lang" aria-hidden="true"><span class="on">EN</span><span>हि</span><span>RU</span></span>
+            </div>
+
+            <div class="src-chip">
+              <span class="src-thumb" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="5" y="2.5" width="14" height="19" rx="1.6"/><path d="M8.5 7.5h7M8.5 11h7M8.5 14.5h4.5M8.5 18h7"/></svg>
+              </span>
+              <span class="src-meta"><b>Фото документа</b>распознано 14 строк · 320,00 ₽/час</span>
+            </div>
+
+            <div class="doc-view">
+              <div class="doc">
+                <div class="doc-title" data-at="450">Расчётный листок за август 2026 · <b>ООО ▮▮▮▮▮▮▮</b></div>
+                <div class="dhead" data-at="700"><span>Вид</span><span>Дни · ч</span><span>Сумма</span></div>
+
+                <b class="doc-sec" data-at="880">1. Начислено</b>
+                <div class="dline watch" data-at="1000"><span>Оплата по часовому тарифу</span><span class="qty">21·168</span><span class="sum">53 760,00</span></div>
+                <div class="dline" data-at="1090"><span>Доплата за работу в ночное время</span><span class="qty">20,00</span><span class="sum">2 560,00</span></div>
+                <div class="dline" data-at="1180"><span>Премия ежемесячная процентом</span><span class="qty">—</span><span class="sum">13 440,00</span></div>
+                <div class="dline tot" data-at="1290"><span>Всего начислено</span><span class="qty"></span><span class="sum">69 760,00</span></div>
+
+                <b class="doc-sec" data-at="1410">2. Удержано</b>
+                <div class="dline" data-at="1500"><span>НДФЛ 30 % · нерезидент</span><span class="qty">—</span><span class="sum">20 928,00</span></div>
+                <div class="dline" data-at="1590"><span>Профсоюзный взнос</span><span class="qty">—</span><span class="sum">697,60</span></div>
+                <div class="dline" data-at="1680"><span>Удержание за проживание в общежитии</span><span class="qty">—</span><span class="sum">6 000,00</span></div>
+                <div class="dline tot" data-at="1790"><span>Всего удержано</span><span class="qty"></span><span class="sum">27 625,60</span></div>
+
+                <b class="doc-sec" data-at="1910">4. Выплачено</b>
+                <div class="dline" data-at="2000"><span>Выплата за первую половину месяца</span><span class="qty">20.08</span><span class="sum">20 000,00</span></div>
+                <div class="dline pay" data-at="2110"><span>К выплате за август</span><span class="qty"></span><span class="sum">22 134,40</span></div>
+              </div>
+            </div>
+
+            <div class="sheet" data-at="5000">
+            <div class="turn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+              Что он понимает через Work India
+            </div>
+
+            <div class="out">
+              <p class="out-line" data-at="5500" data-type>Paid for <b>21 shifts</b> — 168 hours. Your roster for August shows <b>23</b>. Missing ≈ ₽5 120 before tax.</p>
+              <p class="out-line hi" data-at="6900">अगस्त में आपकी 23 शिफ़्ट थीं, भुगतान 21 का हुआ है।</p>
+
+              <div class="shifts" data-at="7200">
+                <span class="shifts-lb">Смены по вашему графику <b>оплачено 21 из 23</b></span>
+                <span class="cells" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              </div>
+
+              <div class="pop-flag" data-at="7700">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21 20H3Z"/><path d="M12 9.5v4.5M12 17h.01"/></svg>
+                <p><b>Расхождение на 2 смены.</b> И ставка НДФЛ 30 % — вы ещё нерезидент. После 183 дней в России она станет 13 %, а налог за эти месяцы пересчитают.</p>
+              </div>
+
+              <div class="compose" data-at="9000">
+                <span class="p-label">Вопрос мастеру — по-русски</span>
+                <p class="p-txt p-ru" data-at="9250" data-type>«Добрый день! В расчётном листке за август стоит 21 смена, 168 часов. По графику я отработал 23. Подскажите, пожалуйста, как это проверить?»</p>
+                <div class="row" data-at="11000">
+                  <span class="mini-btn pulse" data-at="11000">Отправить</span>
+                  <span class="mini-btn ghost">Изменить</span>
+                </div>
+              </div>
+            </div>
+            </div>
+          </section>
+
+          <!-- ── АКТ 2 · КОНТЕКСТНЫЙ ПЕРЕВОДЧИК ─────────────────── -->
+          <section class="act" data-act data-dur="11400" data-pause-ms="900"
+                   data-phases="0:shot,600:scan,2000:read,2500:explain,5400:context,8000:ask,11000:out"
+                   aria-label="Контекстный переводчик">
+
+            <div class="act-head">
+              <span class="tag">Что он видит</span>
+              <span class="lang" aria-hidden="true"><span class="on">EN</span><span>हि</span><span>RU</span></span>
+            </div>
+
+            <div class="src-chip">
+              <span class="src-thumb" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5h3l1.6-2h6.8l1.6 2h3v11.5H4z"/><circle cx="12" cy="13" r="3.4"/></svg>
+              </span>
+              <span class="src-meta"><b>Фото объявления на стенде</b>снято сегодня · участок №3</span>
+            </div>
+
+            <div class="doc-view doc-view--board">
+              <div class="doc doc--notice">
+                <div class="notice">
+                  <div class="notice-hd" data-at="350">График работ<span>участок №3 · август</span></div>
+                  <p class="recog" data-at="650">Сингх&nbsp;Р., Кумар&nbsp;А. — <b>12.08 выходите в субботу вместо четверга.</b> Наряд получить у мастера до начала смены. Сменщик — Абдуллаев.</p>
+                  <p class="recog" data-at="1150">Бригада 4 — в пятницу планёрка в 07:30 у бытовки. Не опаздывать.</p>
+                  <p class="recog" data-at="1550">Проход на участок только в каске и жилете. Проверка ежедневно.</p>
+                  <div class="notice-sign" data-at="1850">Мастер участка ▮▮▮▮▮▮▮ · 11.08.2026</div>
+                </div>
+                <div class="notice slip">
+                  <div class="notice-hd" data-at="2100">Техника безопасности<span>инструктаж</span></div>
+                  <p class="recog" data-at="2100">14.08, 08:00, кабинет 2. Явка обязательна для всех бригад.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sheet" data-at="2300">
+            <div class="turn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+              Что он понимает через Work India
+            </div>
+
+            <div class="out">
+              <p class="out-line" data-at="2600" data-type>Your shift moves from <b>Thursday to Saturday</b>. Collect your work order from the foreman before it starts.</p>
+              <p class="out-line hi" data-at="3900">आपकी शिफ़्ट गुरुवार से शनिवार कर दी गई है।</p>
+
+              <div class="roster" data-at="4300">
+                <span class="roster-lb">Ваша неделя · 12–18 августа</span>
+                <span class="days">
+                  <span class="day work">пн<b>8ч</b></span>
+                  <span class="day work">вт<b>8ч</b></span>
+                  <span class="day work">ср<b>8ч</b></span>
+                  <span class="day work">чт<b>8ч</b></span>
+                  <span class="day work">пт<b>8ч</b></span>
+                  <span class="day">сб<b>—</b></span>
+                  <span class="day">вс<b>—</b></span>
+                  <span class="shift-chip" data-at="5400" aria-hidden="true"></span>
+                </span>
+                <span class="roster-note"><i aria-hidden="true"></i>смена переезжает на субботу — ваш выходной</span>
+              </div>
+
+              <p class="out-line note" data-at="6000">По вашему графику суббота — выходной. Если четверг останется рабочим, за неделю выйдет <b>шесть смен вместо пяти</b>. «Наряд» — это задание на смену: без него на участок не пускают.</p>
+
+              <div class="compose" data-at="8000">
+                <span class="p-label">Ответить по-русски</span>
+                <p class="p-txt p-ru" data-at="8250" data-type>«Понял, в субботу выйду. Четверг остаётся рабочим или снимается?»</p>
+                <div class="row" data-at="9700">
+                  <span class="mini-btn pulse" data-at="9700">Отправить</span>
+                  <span class="mini-btn ghost">Озвучить</span>
+                </div>
+              </div>
+            </div>
+            </div>
+          </section>
+
         </div>
+      </div>
+
+      <div class="demo-rail" data-rail>
+        <button class="rail" type="button" data-jump>
+          <span class="rail-track"><span class="rail-fill"></span></span>
+          <span class="rail-lb">1 · Расчётный листок</span>
+        </button>
+        <button class="rail" type="button" data-jump>
+          <span class="rail-track"><span class="rail-fill"></span></span>
+          <span class="rail-lb">2 · Что сказал мастер</span>
+        </button>
+        <button class="rail-pause" type="button" data-pause aria-pressed="false" aria-label="Остановить показ">
+          <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="5" width="3.6" height="14" rx="1.2"/><rect x="13.4" y="5" width="3.6" height="14" rx="1.2"/></svg>
+          <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z"/></svg>
+        </button>
       </div>
     </div>
 
@@ -112,13 +245,13 @@
 <!-- ==================== ПУТЬ ==================== -->
 <section class="band" id="path">
   <div class="shell">
-    <div class="sec-head">
+    <div class="sec-head" data-reveal>
       <span class="tag">Путь пользователя</span>
       <h2>Четыре стадии, один профиль</h2>
       <p>Всё, что человек рассказал о себе, когда искал работу, работает на него потом каждый день на смене. Продукт не заканчивается на оффере — там он только начинает приносить пользу.</p>
     </div>
 
-    <div class="path">
+    <div class="path" data-reveal="stagger">
       <div class="stage">
         <div class="stage-no"><i aria-hidden="true"></i>Стадия 1 · Индия</div>
         <h3>Пока он ещё дома</h3>
@@ -142,7 +275,7 @@
         </ul>
       </div>
 
-      <div class="stage here">
+      <div class="stage here here--first">
         <div class="here-flag">
           <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           Отсюда начинаем
@@ -169,7 +302,7 @@
       </div>
     </div>
 
-    <div class="path-note">
+    <div class="path-note" data-reveal>
       <span class="tag">Почему так</span>
       <p>Логично было бы начать со стадии 1 — там человек ищет работу и его проще найти. Но он заходит несколько раз за месяцы поиска и исчезает до переезда. Поэтому <b>первыми мы берём тех, кто уже в России сегодня</b>: у них потребность возникает по нескольку раз в день. Стадии 1 и 2 подключаются обратным ходом — через земляка, который уже пользуется.</p>
     </div>
@@ -179,20 +312,20 @@
 <!-- ==================== ПРОТОТИП ==================== -->
 <section class="proto" id="proto">
   <div class="shell">
-    <div class="sec-head">
+    <div class="sec-head" data-reveal>
       <span class="tag tag--saffron">Интерфейс</span>
-      <h2>Четыре экрана, которые человек открывает чаще всего</h2>
-      <p>Не разделы меню, а четыре момента, в которых он сегодня остаётся один: расчётный лист, распоряжение бригадира, срок документа и вопрос «сколько останется на руках».</p>
+      <h2>Ещё четыре экрана из того же профиля</h2>
+      <p>Разбор расчётного листа и перевод распоряжения мастера вы уже видели в работе выше. Вот остальные четыре момента, в которых человек сегодня остаётся один: договор до подписания, язык на смене, срок документа и вопрос «сколько останется на руках».</p>
     </div>
 
     <div class="screens">
 
-      <!-- ЭКРАН 1 — РАЗБОР РАСЧЁТНОГО ЛИСТА -->
-      <figure class="shot">
+      <!-- ЭКРАН 1 — ТРУДОВОЙ ДОГОВОР ДО ПОДПИСАНИЯ -->
+      <figure class="shot" data-reveal>
         <div class="phone">
           <div class="phone-bar">
             <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-            <span class="ttl">Расчётный лист · июнь</span>
+            <span class="ttl">Трудовой договор</span>
             <span class="lang" aria-hidden="true"><span class="on">EN</span><span>हि</span><span>RU</span></span>
           </div>
           <div class="phone-body">
@@ -204,34 +337,33 @@
                   <path d="M13 12h14M13 16h14M13 20h9M13 24h14M13 28h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".65"/>
                 </svg>
               </span>
-              <span class="meta">Фото документа<br>распознано · 6 строк</span>
+              <span class="meta">Фото договора<br>14 страниц · до подписания</span>
             </div>
 
-            <div class="docstrip" aria-label="Распознанные строки расчётного листа">
-              <div class="dr"><span>ОПЛАТА ПО ЧАС. СТАВКЕ</span><b>45 120,00</b></div>
-              <div class="dr"><span>НОЧНЫЕ ЧАСЫ</span><b>4 380,00</b></div>
-              <div class="dr bad"><span>ОТРАБОТАНО СМЕН</span><b>21</b></div>
-              <div class="dr"><span>НДФЛ 13 %</span><b>−6 435,00</b></div>
-              <div class="dr"><span>ОБЩЕЖИТИЕ</span><b>−6 500,00</b></div>
-              <div class="dr"><span>К ВЫПЛАТЕ</span><b>36 565,00</b></div>
+            <div class="docstrip" aria-label="Распознанные пункты договора">
+              <div class="dr"><span>4.2 ОПЛАТА ТРУДА</span><b>320,00 ₽/ч</b></div>
+              <div class="dr bad"><span>4.5 ПРОЖИВАНИЕ</span><b>из зарплаты</b></div>
+              <div class="dr"><span>5.1 РЕЖИМ РАБОТЫ</span><b>2/2 по 12 ч</b></div>
+              <div class="dr"><span>5.4 СВЕРХУРОЧНЫЕ</span><b>по приказу</b></div>
+              <div class="dr"><span>7.3 РАСТОРЖЕНИЕ</span><b>за 30 дней</b></div>
               <span class="doc-flag">
                 <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 4v11M12 19h.01"/></svg>
-                не сходится со сменами
+                сумма не указана
               </span>
             </div>
 
             <div class="pcard on-ink">
               <span class="p-label">Explained for you</span>
-              <p class="p-txt">Paid for <b>21 shifts</b> — your June roster has <b>23</b>. Difference ≈ ₽4 300 before tax.</p>
-              <p class="p-txt p-hi">जून में 23 शिफ़्ट थीं, भुगतान 21 का हुआ।</p>
+              <p class="p-txt">Clause <b>4.5</b> lets the employer take housing out of your pay, but <b>names no amount</b>. By law this needs your written consent — ask for the figure before you sign.</p>
+              <p class="p-txt p-hi">4.5 में आवास की राशि लिखी ही नहीं है।</p>
             </div>
 
             <div class="suggest">
-              <span class="p-label">Ask your supervisor — in Russian</span>
-              <p class="p-txt p-ru">«Добрый день! В расчётном листе за июнь стоит 21 смена, а по графику я отработал 23. Подскажите, пожалуйста, как это проверить?»</p>
+              <span class="p-label">Спросить до подписания</span>
+              <p class="p-txt p-ru">«Пункт 4.5: какая именно сумма удерживается за проживание и где она зафиксирована? Нужно ли моё письменное согласие?»</p>
               <div class="row">
-                <span class="mini-btn">Скопировать</span>
-                <span class="mini-btn ghost">Изменить</span>
+                <span class="mini-btn">В список вопросов</span>
+                <span class="mini-btn ghost">Ещё пункты</span>
               </div>
             </div>
 
@@ -239,67 +371,63 @@
         </div>
 
         <figcaption class="shot-cap">
-          <span class="tag">Экран 1 · разбор документа</span>
-          <h3>Расчётный лист, объяснённый на родном языке</h3>
-          <p>Человек фотографирует лист — ассистент разбирает начисления и удержания и сверяет их с графиком, который уже знает из профиля. Если число смен не сходится, это видно сразу. И главное: продукт не останавливается на «вот перевод» — он готовит вопрос работодателю по-русски, потому что задать его человек всё равно не может.</p>
-          <p>Та же функция работает и до переезда: трудовой договор объясняем <b>до</b> подписания.</p>
+          <span class="tag">Экран 1 · стадия до переезда</span>
+          <h3>Договор, объяснённый до подписи, а не после</h3>
+          <p>Человек подписывает документ на языке, которого не знает, и узнаёт его содержание из первой зарплаты. Ассистент разбирает договор по пунктам и отдельно показывает те, где условие сформулировано в пользу работодателя или не сформулировано вовсе.</p>
+          <p>Здесь это пункт про удержание за проживание без указанной суммы. Дальше продукт не останавливается на «вот перевод»: он формулирует вопрос работодателю по-русски — задать его человек всё равно не может.</p>
         </figcaption>
       </figure>
 
-      <!-- ЭКРАН 2 — КОНТЕКСТНЫЙ ПЕРЕВОДЧИК -->
-      <figure class="shot">
+      <!-- ЭКРАН 2 — РУССКИЙ В РАБОЧЕМ КОНТЕКСТЕ -->
+      <figure class="shot" data-reveal>
         <div class="phone">
           <div class="phone-bar">
             <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-            <span class="ttl">Что сказал бригадир</span>
+            <span class="ttl">Русский · 5 минут</span>
             <span class="lang" aria-hidden="true"><span class="on">EN</span><span>हि</span></span>
           </div>
           <div class="phone-body">
 
-            <div class="bubble them">
-              <span class="src">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.2"/></svg>
-                Фото объявления на стенде
+            <div class="pcard">
+              <span class="p-label">Слова этой недели</span>
+              <span class="chips">
+                <i>наряд</i><i>бытовка</i><i>планёрка</i><i>стропа</i><i>табель</i><i class="new">простой</i>
               </span>
-              <span class="p-ru">«Иванов — завтра, 12.07, выходишь в субботу вместо четверга. Наряд возьмёшь у Петровича до начала смены.»</span>
             </div>
 
-            <div class="bubble us">
-              <span class="src">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-3"/><path d="M4 12v5a2 2 0 0 0 2 2h1"/></svg>
-                Work India
-              </span>
-              You are moved to Saturday instead of Thursday. Pick up your work order from Petrovich before the shift starts.
-              <p class="p-txt p-hi" style="margin-top:8px">आपकी शिफ़्ट गुरुवार से शनिवार कर दी गई है।</p>
+            <div class="pcard on-ink">
+              <span class="p-label">Фраза дня</span>
+              <p class="p-txt p-ru">«Сегодня простой — работы не будет, но табель закрывают.»</p>
+              <p class="p-txt">A <b>«простой»</b> is a paid stoppage: no work today, but the day still counts on your timesheet.</p>
+              <p class="p-txt p-hi">आज काम नहीं है, लेकिन दिन गिना जाएगा।</p>
             </div>
 
             <div class="pcard">
-              <span class="p-label">Что это значит именно для вас</span>
-              <p class="p-txt">По вашему графику <b>суббота — выходной</b>. Замена дня — не переработка сама по себе, но если четверг останется рабочим, часы за неделю выйдут сверх нормы.</p>
-              <p class="p-txt" style="color:var(--ink-2)">«Наряд» — это задание на смену: где и что вы делаете. Без него на участок не пускают.</p>
+              <span class="p-label">Что ответить мастеру</span>
+              <span class="opt"><i></i>«Хорошо, я тогда пойду домой.»</span>
+              <span class="opt ok"><i></i>«Понял. Мне нужно отметиться в табеле?»</span>
+              <span class="opt"><i></i>«Мне не заплатят за сегодня?»</span>
             </div>
 
             <div class="suggest">
-              <span class="p-label">Ответить по-русски</span>
-              <p class="p-txt p-ru">«Понял, в субботу выйду. Четверг остаётся рабочим или меняется?»</p>
-              <div class="row">
-                <span class="mini-btn">Отправить</span>
-                <span class="mini-btn ghost">Озвучить</span>
-              </div>
+              <span class="p-label">Откуда эти слова</span>
+              <p class="p-txt">Это те слова, которые вы на этой неделе переспрашивали у ассистента на смене. Урок собирается из вашей работы, а не из учебника.</p>
+              <div class="row"><span class="mini-btn">Продолжить · 12 дней подряд</span></div>
             </div>
 
           </div>
         </div>
 
         <figcaption class="shot-cap">
-          <span class="tag">Экран 2 · переводчик с контекстом</span>
-          <h3>Не перевод слов, а перевод ситуации</h3>
-          <p>Общий переводчик отдаст подстрочник и слово «наряд» в неверном значении. Ассистент помнит, кем человек работает, какой у него график и что у него за документы, — и отвечает не «вот перевод», а «вам поменяли день, по вашему графику это значит вот что». Фото со стенда и голос на входе, ответ на родном языке и готовая реплика по-русски на выходе.</p>
+          <span class="tag">Экран 2 · язык</span>
+          <h3>Учебник, который пишется из его собственных смен</h3>
+          <p>Курсы русского для мигрантов учат аэропорту и магазину. Человеку на участке нужны «наряд», «бытовка», «простой» и «табель» — и нужны они в тот день, когда он их услышал и не понял.</p>
+          <p>Ассистент видит, какие слова человек переспрашивал на этой неделе, и собирает из них пятиминутное упражнение. Это тот же профиль, что разбирает его документы, — поэтому лексика совпадает с его профессией и графиком, а не с усреднённым курсом.</p>
         </figcaption>
       </figure>
 
       <!-- ЭКРАН 3 — СРОКИ -->
-      <figure class="shot">
+      <figure class="shot" data-reveal>
         <div class="phone">
           <div class="phone-bar">
             <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
@@ -312,16 +440,16 @@
               <div class="due">
                 <span class="due-ic hot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
                 <span>
-                  <span class="due-nm">Оплата патента</span>
-                  <span class="due-dt">ежемесячно · до 14.07</span>
+                  <span class="due-nm">Продление разрешения на работу</span>
+                  <span class="due-dt">подать за 30 дней · до 14.09</span>
                 </span>
                 <span class="due-chip hot">12 дней</span>
               </div>
               <div class="due">
                 <span class="due-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="4" width="15" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h4"/></svg></span>
                 <span>
-                  <span class="due-nm">Миграционный учёт</span>
-                  <span class="due-dt">продление · до 03.09</span>
+                  <span class="due-nm">Продление рабочей визы</span>
+                  <span class="due-dt">по разрешению на работу · до 03.11</span>
                 </span>
                 <span class="due-chip">63 дня</span>
               </div>
@@ -344,14 +472,14 @@
             </div>
 
             <div class="pcard on-ink">
-              <span class="p-label">Ближайшее · 14 июля</span>
-              <p class="p-txt">Pay the patent fee before <b>14 July</b>. One missed month cancels the document — you cannot pay it later.</p>
-              <p class="p-txt p-hi">एक महीना चूकने पर पेटेंट रद्द हो जाता है।</p>
+              <span class="p-label">Ближайшее · 14 сентября</span>
+              <p class="p-txt">Your employer must file for the work-permit extension <b>30 days before</b> it expires. If the permit lapses, your visa goes with it.</p>
+              <p class="p-txt p-hi">वर्क परमिट खत्म होने से 30 दिन पहले आवेदन देना ज़रूरी है।</p>
             </div>
 
             <div class="pcard">
               <span class="p-label">Что для этого нужно</span>
-              <p class="p-txt">Сумма на июль, реквизиты, чек — сохраните фото: его спрашивают при проверке. Напомним 10, 12 и 13 июля.</p>
+              <p class="p-txt">Подаёт работодатель, но собрать документы нужно вам: паспорт, действующее разрешение, полис ДМС. Напомним 10, 12 и 13 сентября.</p>
             </div>
 
           </div>
@@ -361,11 +489,12 @@
           <span class="tag">Экран 3 · календарь сроков</span>
           <h3>Предупреждаем заранее, а не постфактум</h3>
           <p>Сроки по документам — та боль, где цена ошибки максимальная: пропущенная дата стоит человеку не только денег, но иногда и права находиться в стране. Ассистент собирает даты из загруженных документов сам и ведёт их как обычный календарь — с объяснением, что именно нужно сделать и что будет, если не успеть.</p>
+          <p>Специалист из Индии въезжает по визе и работает по разрешению на работу — это другой набор сроков, чем патент у приезжих из безвизовых стран. Российские сервисы для мигрантов построены под патент, и человеку из Индии они не подходят.</p>
         </figcaption>
       </figure>
 
       <!-- ЭКРАН 4 — РЕАЛЬНЫЙ ДОХОД -->
-      <figure class="shot">
+      <figure class="shot" data-reveal>
         <div class="phone">
           <div class="phone-bar">
             <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
@@ -375,32 +504,32 @@
           <div class="phone-body">
 
             <div class="pcard">
-              <span class="p-label">Вакансия · сварщик, Подмосковье</span>
+              <span class="p-label">Вакансия · электросварщик, Подмосковье</span>
               <div class="income-top">
-                <span class="num">₽52 400</span>
+                <span class="num">₽37 100</span>
                 <span class="was">в объявлении <s>₽90 000</s></span>
               </div>
               <div class="bar" aria-hidden="true">
-                <i style="width:58%;background:var(--cat-a)"></i>
-                <i style="width:13%;background:var(--cat-b)"></i>
+                <i style="width:41%;background:var(--cat-a)"></i>
+                <i style="width:30%;background:var(--cat-b)"></i>
                 <i style="width:12%;background:var(--cat-c)"></i>
                 <i style="width:9%;background:var(--cat-d)"></i>
                 <i style="width:8%;background:var(--cat-e)"></i>
               </div>
               <div class="legend">
-                <span class="lg"><i class="sw" style="background:var(--cat-a)"></i>Останется на руках<span class="val">52 400</span></span>
-                <span class="lg"><i class="sw" style="background:var(--cat-b)"></i>НДФЛ<span class="val">−11 700</span></span>
+                <span class="lg"><i class="sw" style="background:var(--cat-a)"></i>Останется на руках<span class="val">37 100</span></span>
+                <span class="lg"><i class="sw" style="background:var(--cat-b)"></i>НДФЛ 30 % · нерезидент<span class="val">−27 000</span></span>
                 <span class="lg"><i class="sw" style="background:var(--cat-c)"></i>Общежитие<span class="val">−10 800</span></span>
                 <span class="lg"><i class="sw" style="background:var(--cat-d)"></i>Дорога до участка<span class="val">−7 900</span></span>
                 <span class="lg"><i class="sw" style="background:var(--cat-e)"></i>Еда и связь<span class="val">−7 200</span></span>
               </div>
-              <div class="rupee"><b>≈ ₹57 600</b> в месяц по курсу на сегодня</div>
+              <div class="rupee"><b>≈ ₹40 800</b> в месяц по курсу на сегодня</div>
             </div>
 
             <div class="pcard on-ink">
               <span class="p-label">Why the number differs</span>
-              <p class="p-txt">₽90 000 in the ad is <b>before tax and before housing</b>. Housing is deducted from your pay by the employer, not paid separately.</p>
-              <p class="p-txt p-hi">विज्ञापन की राशि कर और आवास से पहले की है।</p>
+              <p class="p-txt">For your <b>first 183 days</b> in Russia the tax is <b>30 %</b>, not 13 % — you are not a tax resident yet. After that it drops and the difference is recalculated: ≈ ₽52 400 on hand.</p>
+              <p class="p-txt p-hi">पहले 183 दिन कर 30% है, उसके बाद 13% हो जाता है।</p>
             </div>
 
             <div class="suggest">
@@ -416,25 +545,26 @@
           <span class="tag">Экран 4 · реальный доход</span>
           <h3>Главный вопрос, на который сегодня никто не отвечает честно</h3>
           <p>Человек принимает решение о переезде по цифре из объявления. Ассистент переводит условия вакансии в понятную картину: что вычтут, кто платит за жильё и дорогу, сколько останется в рублях и в рупиях — с объяснением каждой строки. Тот же расчёт работает и после переезда, когда нужно сравнить текущее место с новым предложением.</p>
+          <p>Самая дорогая строка здесь — не жильё, а ставка налога первого полугодия: пока человек не набрал 183 дня в России, НДФЛ с него удерживают по 30 %. Об этом не пишут в объявлении, и именно на этой цифре ломается расчёт, с которым человек ехал.</p>
         </figcaption>
       </figure>
 
     </div>
 
-    <p class="proto-note">Экраны — прототип интерфейса. Суммы, даты и названия на них — примеры для демонстрации сценария, а не данные реальных пользователей.</p>
+    <p class="proto-note" data-reveal>Экраны — прототип интерфейса. Суммы, даты и названия на них — примеры для демонстрации сценария, а не данные реальных пользователей.</p>
   </div>
 </section>
 
 <!-- ==================== ОТЛИЧИЯ ==================== -->
 <section id="diff">
   <div class="shell">
-    <div class="sec-head">
+    <div class="sec-head" data-reveal>
       <span class="tag">Чем отличается</span>
       <h2>Работная площадка доводит до оффера и теряет человека</h2>
-      <p>Дальше он остаётся один — с чатом земляков вместо сервиса. Каждое звено знает только свой кусок пути, и никто не знает человека целиком.</p>
+      <p>Дальше он остаётся один — с чатом земляков вместо сервиса. Каждое звено знает только свой кусок пути, и никто не знает человека целиком. Ниже — что доступно специалисту из Индии в России сегодня.</p>
     </div>
 
-    <div class="matrix-wrap">
+    <div class="matrix-wrap" data-reveal>
       <table class="matrix">
         <thead>
           <tr>
@@ -481,7 +611,39 @@
       </table>
     </div>
 
-    <div class="edge">
+
+    <div class="market" data-reveal>
+      <div class="market-head">
+        <span class="tag">Проверяемая граница</span>
+        <h3>Где заканчиваются решения, которые уже существуют</h3>
+        <p>Мы не утверждаем, что похожего нет нигде. Похожее есть — и полезнее назвать его точно, чем делать вид, что рынок пуст.</p>
+      </div>
+      <ul class="market-list">
+        <li>
+          <b>Платформа найма иностранных специалистов Сбера и Работы.ру</b>
+          <span class="mk-where">Россия · коридор Индия → Россия</span>
+          <p>Заявки работодателя, анкеты кандидатов, документы, разрешение на работу и СНИЛС. Это инструмент работодателя: работник в нём — предмет подбора, а не пользователь. Языка, зарплаты, сроков и быта в публичном описании нет.</p>
+        </li>
+        <li>
+          <b>Российские сервисы для трудовых мигрантов</b>
+          <span class="mk-where">Россия · безвизовые страны СНГ</span>
+          <p>Патент, миграционный учёт, платежи, переводы, автоперевод чата с работодателем. Всё построено вокруг патента — документа, которого у специалиста из Индии нет: он въезжает по визе и работает по разрешению на работу. Языки — узбекский и таджикский.</p>
+        </li>
+        <li>
+          <b>Приложения, разбирающие расчётный лист</b>
+          <span class="mk-where">Южная Корея, США · другие коридоры</span>
+          <p>Фото расчётного листа и сверка с отработанными сменами существуют — для корейской рабочей визы и для почасовых работников в США. Ни одно не покрывает стадию до переезда, не проверяет договор и не ведёт сроки документов. В России такой функции нет ни у кого.</p>
+        </li>
+        <li>
+          <b>Справочники «до и после переезда»</b>
+          <span class="mk-where">ЮВА, Персидский залив · некоммерческие</span>
+          <p>Обе стадии пути покрывают только справочники и площадки отзывов о работодателях. Они одинаковы для всех: профиля человека нет, ничего не считают, на конкретный документ не отвечают.</p>
+        </li>
+      </ul>
+      <p class="market-note">Отсюда и формулировка отличия: не «такого нет», а «персонализированного ассистента, который держит профиль человека и работает на обеих стадиях, в коридоре Индия → Россия сегодня нет».</p>
+    </div>
+
+    <div class="edge" data-reveal="stagger">
       <div>
         <span class="n">Отличие 1</span>
         <h3>Контекст вместо перевода</h3>
@@ -495,7 +657,7 @@
       <div>
         <span class="n">Отличие 3</span>
         <h3>Заход через тех, кто уже здесь</h3>
-        <p>Конкуренты бьются за пользователя на этапе поиска работы, где он дорогой и уходит после трудоустройства. Мы берём аудиторию, которая уже в стране и которой помощь нужна сегодня, — она дешевле в привлечении и приводит следующих через земляков.</p>
+        <p>И работные площадки, и платформы найма бьются за пользователя на этапе поиска работы, где он дорогой и уходит сразу после трудоустройства. Мы берём аудиторию, которая уже в стране и которой помощь нужна сегодня, — она дешевле в привлечении и приводит следующих через земляков.</p>
       </div>
       <div>
         <span class="n">Отличие 4</span>
@@ -509,18 +671,18 @@
 <!-- ==================== КОМАНДА ==================== -->
 <section id="team">
   <div class="shell">
-    <div class="sec-head">
+    <div class="sec-head" data-reveal>
       <span class="tag">Команда</span>
       <h2>Пять человек, которые уже доводили продукт до работающего интерфейса</h2>
       <p>Роли распределены и проверены на совместном проекте — не собраны под заявку.</p>
     </div>
 
-    <div class="team">
+    <div class="team" data-reveal="stagger">
       <div class="mem">
         <span class="role">CPO · капитан</span>
         <span class="nm">Элшодбек<br>Вафаев</span>
         <span class="fn">Продуктовая и бизнес-аналитика. Исследование ЦА, работа с сообществами.</span>
-        <span class="gh">—</span>
+        <span class="gh"><em>профиль не приложен</em></span>
       </div>
       <div class="mem">
         <span class="role">CAIO</span>
@@ -538,17 +700,17 @@
         <span class="role">CVO</span>
         <span class="nm">Мария<br>Полковникова</span>
         <span class="fn">Продукт и аналитика. Интервью с ЦА, метрики, удержание.</span>
-        <span class="gh">—</span>
+        <span class="gh"><em>профиль не приложен</em></span>
       </div>
       <div class="mem">
         <span class="role">CFO</span>
         <span class="nm">Марк<br>Сердюк</span>
         <span class="fn">Маркетинг и юнит-экономика. Каналы роста, стоимость привлечения.</span>
-        <span class="gh">—</span>
+        <span class="gh"><em>профиль не приложен</em></span>
       </div>
     </div>
 
-    <div class="join">
+    <div class="join" data-reveal>
       <span class="tag">Совместный проект</span>
       <div>
         <p><b>JOIN — Telegram Mini App,</b> доведённый этим же составом до работающего прототипа: от исследования проблемы до интерфейса, которым можно пользоваться. Это подтверждается экранами продукта, а не заявлениями.</p>
@@ -585,22 +747,5 @@
   </div>
 </footer>
 
-<script>
-  (function(){
-    var btn = document.getElementById('themeBtn');
-    if(!btn) return;
-    function current(){
-      var t = document.documentElement.getAttribute('data-theme');
-      if(t === 'dark' || t === 'light') return t;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    btn.addEventListener('click', function(){
-      var next = current() === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try{ localStorage.setItem('wi-theme', next); }catch(e){}
-      btn.setAttribute('aria-label', next === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему');
-    });
-  })();
-</script>
 </body>
 </html>

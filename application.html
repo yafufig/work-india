@@ -9,13 +9,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="wi.css">
+<script src="wi.js" defer></script>
 <script>
-  (function(){try{var t=localStorage.getItem('wi-theme');if(t){document.documentElement.setAttribute('data-theme',t)}else{document.documentElement.removeAttribute('data-theme')}}catch(e){}})();
+  (function(){document.documentElement.className+=' js';try{var t=localStorage.getItem('wi-theme');if(t){document.documentElement.setAttribute('data-theme',t)}else{document.documentElement.removeAttribute('data-theme')}}catch(e){}})();
 </script>
 </head>
 <body>
 
-<header class="topbar">
+<header class="topbar" data-enter="0">
   <div class="topbar-in">
     <a class="brand" href="index.html">
       <span class="brand-mark" aria-hidden="true">WI</span>
@@ -35,18 +36,41 @@
 
 <main>
 
-<section class="hero" style="padding-bottom:0">
-  <div class="shell">
-    <span class="eyebrow">Sber500xDisrupt · Трек 1 · <b>анкета</b></span>
-    <h1 style="max-width:16em">Полное сопровождение специалиста из Индии — <em>от вакансии до жизни в России</em></h1>
-    <p class="hero-lede">Ниже — ответы на вопросы анкеты в том порядке, в каком они идут в форме.</p>
+<section class="hero hero--form">
+  <div class="shell hero-grid">
+    <div>
+      <span class="eyebrow" data-enter="140">Sber500xDisrupt · Трек 1 · <b class="lat">анкета</b></span>
+      <h1 data-enter="230">Полное сопровождение специалиста из Индии — <em>от вакансии до жизни в России</em></h1>
+      <p class="hero-lede" data-enter="370">Семь вопросов формы, ответы целиком и без сокращений. Там, где данных нет, стоит прочерк, а не формулировка, которую нельзя подтвердить.</p>
 
-    <dl class="meta-grid" style="margin-top:40px">
-      <div><dt>Капитан</dt><dd>Вафаев Элшодбек, 19 лет, Москва</dd></div>
-      <div><dt>Гипотеза</dt><dd>Своя · Finance &amp; Everyday Life</dd></div>
-      <div><dt>Команда</dt><dd>5 человек, работали вместе ранее</dd></div>
-      <div><dt>Целевая метрика трека</dt><dd>1 000 DAU за 3 месяца</dd></div>
-    </dl>
+      <dl class="hero-facts" data-enter="500">
+        <div><dt>Капитан</dt><dd>Вафаев Элшодбек</dd></div>
+        <div><dt>Гипотеза</dt><dd>Своя · Finance &amp; Everyday&nbsp;Life</dd></div>
+        <div><dt>Команда</dt><dd>5 человек</dd></div>
+        <div><dt>Цель трека</dt><dd>1 000 DAU за 3 месяца</dd></div>
+      </dl>
+    </div>
+
+    <!-- ОГЛАВЛЕНИЕ: бланк-реестр, он же навигация по длинной странице -->
+    <nav class="reg" data-enter="300" aria-label="Оглавление анкеты">
+      <div class="reg-head">
+        <span class="tag">Реестр ответов</span>
+        <span class="reg-n">07 вопросов</span>
+      </div>
+      <ol class="reg-list">
+        <li><a href="#q1"><span class="rn">01</span><span class="rt">Гипотеза<i>Название, проблема, формулировка, категория</i></span></a></li>
+        <li><a href="#q2"><span class="rn">02</span><span class="rt">Запасная концепция<i>Готовность работать по списку Сбера</i></span></a></li>
+        <li><a href="#q3"><span class="rn">03</span><span class="rt">Суть идеи<i>ЦА, боль, формат решения, частотность</i></span></a></li>
+        <li><a href="#q4"><span class="rn">04</span><span class="rt">Конкурентное преимущество<i>Пять отличий, каждое проверяемо</i></span></a></li>
+        <li><a href="#q5"><span class="rn">05</span><span class="rt">План работ<i>Восемь недель до MVP с пользователями</i></span></a></li>
+        <li><a href="#q6"><span class="rn">06</span><span class="rt">Функции на LLM<i>Восемь функций и роль модели в каждой</i></span></a></li>
+        <li><a href="#q7"><span class="rn">07</span><span class="rt">Команда<i>Состав, роли, совместный проект, пробелы</i></span></a></li>
+      </ol>
+      <p class="reg-foot">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8v5M12 16.5h.01"/><circle cx="12" cy="12" r="9"/></svg>
+        Часть полей формы мы оставили незаполненными — <a href="#gaps">какие именно</a>
+      </p>
+    </nav>
   </div>
 </section>
 
@@ -54,7 +78,7 @@
 <div class="shell">
 
   <!-- 1 -->
-  <div class="qblock">
+  <div class="qblock" id="q1" data-reveal>
     <div class="qhead">
     <span class="qnum">Вопрос 01</span>
     <p class="qtext">Какую гипотезу вы выбрали? Зафиксируйте гипотезу по образцу на сайте</p>
@@ -81,7 +105,7 @@
   </div>
 
   <!-- 2 -->
-  <div class="qblock">
+  <div class="qblock" id="q2" data-reveal>
     <div class="qhead">
     <span class="qnum">Вопрос 02</span>
     <p class="qtext">Если гипотезу не одобрят — готовы ли вы работать по концепции из списка Сбера?</p>
@@ -95,7 +119,7 @@
   </div>
 
   <!-- 3 -->
-  <div class="qblock">
+  <div class="qblock" id="q3" data-reveal>
     <div class="qhead">
     <span class="qnum">Вопрос 03</span>
     <p class="qtext">В рамках выбранной гипотезы раскройте суть идеи: для кого (ЦА), какая боль, в каком формате решение</p>
@@ -154,7 +178,7 @@
   </div>
 
   <!-- 4 -->
-  <div class="qblock">
+  <div class="qblock" id="q4" data-reveal>
     <div class="qhead">
     <span class="qnum">Вопрос 04</span>
     <p class="qtext">В чём конкурентное преимущество вашей идеи? Чем она будет отличаться от решений, которые уже есть на рынке?</p>
@@ -173,7 +197,7 @@
   </div>
 
   <!-- 5 -->
-  <div class="qblock">
+  <div class="qblock" id="q5" data-reveal>
     <div class="qhead">
     <span class="qnum">Вопрос 05</span>
     <p class="qtext">Распишите план работ по неделям (спринтами) от идеи до MVP с первыми пользователями</p>
@@ -182,54 +206,122 @@
     <div class="qbody">
       <p>Состав на восемь недель: Вафаев — продукт и исследование ЦА (капитан), Ярочкин — DS и продукт, Клушин — разработка, Полковникова — аналитика и рост, Сердюк — маркетинг и экономика.</p>
 
-      <ol class="weeks">
-        <li>
-          <span class="wk">Нед. 1</span>
-          <b>Доступ к аудитории и проверка боли</b>
-          <p>Выход на сообщества индийских студентов и специалистов в Москве: землячества, общежития, профильные чаты. 15 интервью — что именно ломается каждый день и что человек делает сейчас вместо продукта.</p>
-          <span class="out">Подтверждённый список из трёх ежедневных болей и канал доступа</span><span class="who">Вафаев, Полковникова</span>
+            <div class="weeks-bar">
+        <span class="tag">Восемь недель</span>
+        <button class="weeks-all" type="button" data-week-all aria-pressed="false">Развернуть все недели</button>
+      </div>
+      <ol class="weeks" data-reveal="stagger">
+        <li data-week>
+          <button class="wk-toggle" type="button" aria-expanded="false">
+            <span class="wk">Нед. 1</span>
+            <span class="wk-main">
+              <b>Доступ к аудитории и проверка боли</b>
+              <span class="wk-out">Подтверждённый список из трёх ежедневных болей и канал доступа</span>
+            </span>
+            <svg class="wk-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="wk-body"><div class="wk-inner">
+            <p>Выход на сообщества индийских студентов и специалистов в Москве: землячества, общежития, профильные чаты. 15 интервью — что именно ломается каждый день и что человек делает сейчас вместо продукта.</p>
+            <span class="who">Вафаев, Полковникова</span>
+          </div></div>
         </li>
-        <li>
-          <span class="wk">Нед. 2</span>
-          <b>Прототип ядра</b>
-          <p>Контекстный переводчик: фото и голос на входе, ответ на английском и хинди с объяснением. Профиль пользователя — работа, график, документы.</p>
-          <span class="out">Работающий прототип на 5 тестовых пользователях</span><span class="who">Клушин, Ярочкин</span>
+        <li data-week>
+          <button class="wk-toggle" type="button" aria-expanded="false">
+            <span class="wk">Нед. 2</span>
+            <span class="wk-main">
+              <b>Прототип ядра</b>
+              <span class="wk-out">Работающий прототип на 5 тестовых пользователях</span>
+            </span>
+            <svg class="wk-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="wk-body"><div class="wk-inner">
+            <p>Контекстный переводчик: фото и голос на входе, ответ на английском и хинди с объяснением. Профиль пользователя — работа, график, документы.</p>
+            <span class="who">Клушин, Ярочкин</span>
+          </div></div>
         </li>
-        <li>
-          <span class="wk">Нед. 3</span>
-          <b>Разбор документов</b>
-          <p>Распознавание и объяснение договора и расчётного листа: что за график, как считается зарплата, что начислено и удержано, сходится ли со сменами. Одна функция работает на обе стадии — договор объясняем и до подписания в Индии, и после выхода на работу.</p>
-          <span class="out">Разбор документа на реальных фотографиях</span><span class="who">Ярочкин, Клушин</span>
+        <li data-week>
+          <button class="wk-toggle" type="button" aria-expanded="false">
+            <span class="wk">Нед. 3</span>
+            <span class="wk-main">
+              <b>Разбор документов</b>
+              <span class="wk-out">Разбор документа на реальных фотографиях</span>
+            </span>
+            <svg class="wk-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="wk-body"><div class="wk-inner">
+            <p>Распознавание и объяснение договора и расчётного листа: что за график, как считается зарплата, что начислено и удержано, сходится ли со сменами. Одна функция работает на обе стадии — договор объясняем и до подписания в Индии, и после выхода на работу.</p>
+            <span class="who">Ярочкин, Клушин</span>
+          </div></div>
         </li>
-        <li class="key">
-          <span class="wk">Нед. 4</span>
-          <b>MVP и первые пользователи</b>
-          <p>Календарь сроков по документам, ежедневные напоминания. Сборка в приложение, подключение аналитики. Запуск на 30–50 человек из сообществ первой недели.</p>
-          <span class="out">MVP в руках реальных пользователей</span><span class="who">Вся команда</span>
+        <li data-week class="key">
+          <button class="wk-toggle" type="button" aria-expanded="false">
+            <span class="wk">Нед. 4</span>
+            <span class="wk-main">
+              <b>MVP и первые пользователи</b>
+              <span class="wk-out">MVP в руках реальных пользователей</span>
+            </span>
+            <svg class="wk-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="wk-body"><div class="wk-inner">
+            <p>Календарь сроков по документам, ежедневные напоминания. Сборка в приложение, подключение аналитики. Запуск на 30–50 человек из сообществ первой недели.</p>
+            <span class="who">Вся команда</span>
+          </div></div>
         </li>
-        <li>
-          <span class="wk">Нед. 5</span>
-          <b>Данные и вторые 15 интервью</b>
-          <p>Разбор поведения: какие сценарии вызываются ежедневно, какие ни разу. Интервью с теми, кто уже пользуется.</p>
-          <span class="out">Понимание, что оставить в ядре, а что убрать</span><span class="who">Полковникова, Вафаев</span>
+        <li data-week>
+          <button class="wk-toggle" type="button" aria-expanded="false">
+            <span class="wk">Нед. 5</span>
+            <span class="wk-main">
+              <b>Данные и вторые 15 интервью</b>
+              <span class="wk-out">Понимание, что оставить в ядре, а что убрать</span>
+            </span>
+            <svg class="wk-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="wk-body"><div class="wk-inner">
+            <p>Разбор поведения: какие сценарии вызываются ежедневно, какие ни разу. Интервью с теми, кто уже пользуется.</p>
+            <span class="who">Полковникова, Вафаев</span>
+          </div></div>
         </li>
-        <li>
-          <span class="wk">Нед. 6</span>
-          <b>Деньги и фаза «до переезда»</b>
-          <p>Сравнение способов перевода домой и расчёт реальной стоимости — сценарий, который переводит продукт из «помощника» в «экономлю деньги». Плюс первая версия сценария для тех, кто ещё в Индии: расчёт реального дохода с учётом жилья и подбор вакансий по навыкам. Проверяем на тех, кого привели уже работающие пользователи.</p>
-          <span class="out">Измеренное влияние на удержание, первые пользователи из Индии</span><span class="who">Сердюк, Ярочкин</span>
+        <li data-week>
+          <button class="wk-toggle" type="button" aria-expanded="false">
+            <span class="wk">Нед. 6</span>
+            <span class="wk-main">
+              <b>Деньги и фаза «до переезда»</b>
+              <span class="wk-out">Измеренное влияние на удержание, первые пользователи из Индии</span>
+            </span>
+            <svg class="wk-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="wk-body"><div class="wk-inner">
+            <p>Сравнение способов перевода домой и расчёт реальной стоимости — сценарий, который переводит продукт из «помощника» в «экономлю деньги». Плюс первая версия сценария для тех, кто ещё в Индии: расчёт реального дохода с учётом жилья и подбор вакансий по навыкам. Проверяем на тех, кого привели уже работающие пользователи.</p>
+            <span class="who">Сердюк, Ярочкин</span>
+          </div></div>
         </li>
-        <li class="key">
-          <span class="wk">Нед. 7</span>
-          <b>Рост через земляков</b>
-          <p>Механика приглашения внутри сообществ: тот, кому продукт помог, приводит следующего. Работа с лидерами землячеств.</p>
-          <span class="out">70+ реальных пользователей и посчитанная стоимость привлечения</span><span class="who">Полковникова, Сердюк</span>
+        <li data-week class="key">
+          <button class="wk-toggle" type="button" aria-expanded="false">
+            <span class="wk">Нед. 7</span>
+            <span class="wk-main">
+              <b>Рост через земляков</b>
+              <span class="wk-out">70+ реальных пользователей и посчитанная стоимость привлечения</span>
+            </span>
+            <svg class="wk-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="wk-body"><div class="wk-inner">
+            <p>Механика приглашения внутри сообществ: тот, кому продукт помог, приводит следующего. Работа с лидерами землячеств.</p>
+            <span class="who">Полковникова, Сердюк</span>
+          </div></div>
         </li>
-        <li class="key">
-          <span class="wk">Нед. 8</span>
-          <b>Проверка работодателя и стабилизация</b>
-          <p>Проверка компании и подготовка к интервью — блок, который закрывает главный страх на стадии до переезда. Нагрузка, стабильность, качество ответов.</p>
-          <span class="out">Продукт покрывает обе стадии пути и готов к росту до 1 000 DAU</span><span class="who">Клушин, Ярочкин</span>
+        <li data-week class="key">
+          <button class="wk-toggle" type="button" aria-expanded="false">
+            <span class="wk">Нед. 8</span>
+            <span class="wk-main">
+              <b>Проверка работодателя и стабилизация</b>
+              <span class="wk-out">Продукт покрывает обе стадии пути и готов к росту до 1 000 DAU</span>
+            </span>
+            <svg class="wk-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="wk-body"><div class="wk-inner">
+            <p>Проверка компании и подготовка к интервью — блок, который закрывает главный страх на стадии до переезда. Нагрузка, стабильность, качество ответов.</p>
+            <span class="who">Клушин, Ярочкин</span>
+          </div></div>
         </li>
       </ol>
     </div>
@@ -237,29 +329,93 @@
   </div>
 
   <!-- 6 -->
-  <div class="qblock">
+  <div class="qblock" id="q6" data-reveal>
     <div class="qhead">
     <span class="qnum">Вопрос 06</span>
     <p class="qtext">Какие функции продукта планируете осуществлять с помощью LLM?</p>
     </div>
     <div class="qcontent">
     <div class="qbody">
-      <ol class="numlist">
-        <li><b>Контекстный перевод</b>Модель переводит не изолированную фразу, а высказывание с учётом профиля: профессия, график, тип занятости. На выходе — не подстрочник, а объяснение, что это значит для пользователя и что ему теперь делать.</li>
-        <li><b>Разбор документов</b>Распознавание трудового договора, расчётного листа, уведомлений — и пересказ простым языком: состав начислений и удержаний, соответствие отработанным сменам, спорные пункты. Здесь LLM делает основную работу: сопоставляет формальный текст с ситуацией конкретного человека.</li>
-        <li><b>Объяснение правил</b>Ответы на вопросы о документах, сроках и порядке действий — на родном языке, с оговоркой, что это справка, а не юридическая консультация, и со ссылкой на первоисточник.</li>
-        <li><b>Подбор вакансий по смыслу, а не по ключевым словам</b>Опыт индийского специалиста описан в терминах другого рынка. LLM сопоставляет реальные навыки с требованиями российских вакансий поверх несовпадающих формулировок.</li>
-        <li><b>Обучение русскому в рабочем контексте</b>Генерация ежедневных упражнений на лексике его профессии и на тех фразах, которые он реально не понял на этой неделе.</li>
-        <li><b>Подготовка к интервью</b>Тренировка ответов на русском и английском с разбором ошибок — модель играет роль работодателя и даёт обратную связь.</li>
-        <li><b>Проверка работодателя</b>Сбор и осмысление разрозненных упоминаний о компании — регистрационные данные, отзывы, жалобы — в связный ответ о том, что это за работодатель и на что обратить внимание, вместо десяти вкладок на незнакомом языке.</li>
-        <li><b>Расчёт реального дохода</b>Перевод условий вакансии в понятную человеку картину: сколько останется на руках после жилья, налогов и обязательных расходов, в рупиях и в рублях, с объяснением каждой строки.</li>
-      </ol>
+      <div class="llm" data-llm data-reveal>
+          <div class="llm-row">
+            <button class="llm-head" type="button" aria-expanded="false">
+              <span class="llm-n">01</span>
+              <span class="llm-t">Контекстный перевод</span>
+              <span class="llm-tag">Разбор смысла</span>
+              <svg class="llm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="llm-body"><div class="llm-inner"><p>Модель переводит не изолированную фразу, а высказывание с учётом профиля: профессия, график, тип занятости. На выходе — не подстрочник, а объяснение, что это значит для пользователя и что ему теперь делать.</p></div></div>
+          </div>
+          <div class="llm-row">
+            <button class="llm-head" type="button" aria-expanded="false">
+              <span class="llm-n">02</span>
+              <span class="llm-t">Разбор документов</span>
+              <span class="llm-tag">Зрение и разбор</span>
+              <svg class="llm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="llm-body"><div class="llm-inner"><p>Распознавание трудового договора, расчётного листа, уведомлений — и пересказ простым языком: состав начислений и удержаний, соответствие отработанным сменам, спорные пункты. Здесь LLM делает основную работу: сопоставляет формальный текст с ситуацией конкретного человека.</p></div></div>
+          </div>
+          <div class="llm-row">
+            <button class="llm-head" type="button" aria-expanded="false">
+              <span class="llm-n">03</span>
+              <span class="llm-t">Объяснение правил</span>
+              <span class="llm-tag">Справка</span>
+              <svg class="llm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="llm-body"><div class="llm-inner"><p>Ответы на вопросы о документах, сроках и порядке действий — на родном языке, с оговоркой, что это справка, а не юридическая консультация, и со ссылкой на первоисточник.</p></div></div>
+          </div>
+          <div class="llm-row">
+            <button class="llm-head" type="button" aria-expanded="false">
+              <span class="llm-n">04</span>
+              <span class="llm-t">Подбор вакансий по смыслу, а не по ключевым словам</span>
+              <span class="llm-tag">Сопоставление</span>
+              <svg class="llm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="llm-body"><div class="llm-inner"><p>Опыт индийского специалиста описан в терминах другого рынка. LLM сопоставляет реальные навыки с требованиями российских вакансий поверх несовпадающих формулировок.</p></div></div>
+          </div>
+          <div class="llm-row">
+            <button class="llm-head" type="button" aria-expanded="false">
+              <span class="llm-n">05</span>
+              <span class="llm-t">Обучение русскому в рабочем контексте</span>
+              <span class="llm-tag">Генерация</span>
+              <svg class="llm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="llm-body"><div class="llm-inner"><p>Генерация ежедневных упражнений на лексике его профессии и на тех фразах, которые он реально не понял на этой неделе.</p></div></div>
+          </div>
+          <div class="llm-row">
+            <button class="llm-head" type="button" aria-expanded="false">
+              <span class="llm-n">06</span>
+              <span class="llm-t">Подготовка к интервью</span>
+              <span class="llm-tag">Диалог</span>
+              <svg class="llm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="llm-body"><div class="llm-inner"><p>Тренировка ответов на русском и английском с разбором ошибок — модель играет роль работодателя и даёт обратную связь.</p></div></div>
+          </div>
+          <div class="llm-row">
+            <button class="llm-head" type="button" aria-expanded="false">
+              <span class="llm-n">07</span>
+              <span class="llm-t">Проверка работодателя</span>
+              <span class="llm-tag">Поиск и синтез</span>
+              <svg class="llm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="llm-body"><div class="llm-inner"><p>Сбор и осмысление разрозненных упоминаний о компании — регистрационные данные, отзывы, жалобы — в связный ответ о том, что это за работодатель и на что обратить внимание, вместо десяти вкладок на незнакомом языке.</p></div></div>
+          </div>
+          <div class="llm-row">
+            <button class="llm-head" type="button" aria-expanded="false">
+              <span class="llm-n">08</span>
+              <span class="llm-t">Расчёт реального дохода</span>
+              <span class="llm-tag">Расчёт</span>
+              <svg class="llm-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="llm-body"><div class="llm-inner"><p>Перевод условий вакансии в понятную человеку картину: сколько останется на руках после жилья, налогов и обязательных расходов, в рупиях и в рублях, с объяснением каждой строки.</p></div></div>
+          </div>
+        </div>
     </div>
     </div>
   </div>
 
   <!-- 7 -->
-  <div class="qblock">
+  <div class="qblock" id="q7" data-reveal>
     <div class="qhead">
     <span class="qnum">Вопрос 07</span>
     <p class="qtext">Сколько у вас человек в команде? Ранее вы уже работали такой командой?</p>
@@ -288,7 +444,7 @@
       <p>Опыт запуска B2C-продукта есть: JOIN доведён до работающего Mini App. Опыта работы с нагруженным трафиком на уровне архитектуры и инфраструктуры нет.</p>
 
       <!-- СЮДА: названия хакатонов с местами и акселераторов -->
-      <div class="gap-note">
+      <div class="gap-note" id="gaps">
         <b>Не заполнено в этой версии страницы:</b> персональный опыт каждого участника, участие в акселерационных программах и хакатонах, портфолио Полковниковой, Сердюка и Вафаева, опыт продвижения B2C и язык работы с ментором. Эти поля заполняются в форме отдельно — здесь мы не приводим формулировок, которые нельзя подтвердить.
       </div>
     </div>
@@ -316,22 +472,5 @@
   </div>
 </footer>
 
-<script>
-  (function(){
-    var btn = document.getElementById('themeBtn');
-    if(!btn) return;
-    function current(){
-      var t = document.documentElement.getAttribute('data-theme');
-      if(t === 'dark' || t === 'light') return t;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    btn.addEventListener('click', function(){
-      var next = current() === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try{ localStorage.setItem('wi-theme', next); }catch(e){}
-      btn.setAttribute('aria-label', next === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему');
-    });
-  })();
-</script>
 </body>
 </html>
