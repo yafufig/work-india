@@ -1,88 +1,606 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Work India — заявка Sber500xDisrupt</title>
-<meta name="description" content="Сегодня человека передают из рук в руки: работная площадка доводит до оффера и теряет, агентство сопровождает документы и отходит. Никто не знает человека целиком.">
+<title>Work India — ассистент специалиста из Индии в России</title>
+<meta name="description" content="Один ассистент на весь путь: от вакансии в Индии до второго года работы в России. Читает документы, переводит бригадира с контекстом, считает реальный доход и следит за сроками. На английском и хинди.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>:root{--accent:#E07B10}</style>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700&family=Onest:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="wi.css">
+<script>
+  (function(){try{var t=localStorage.getItem('wi-theme');if(t){document.documentElement.setAttribute('data-theme',t)}else{document.documentElement.removeAttribute('data-theme')}}catch(e){}})();
+</script>
 </head>
 <body>
-<div class="wrap">
 
-<header class="masthead">
-  <div class="stamp">
-    <span>Sber500xDisrupt · Трек 1</span><span class="dot"></span>
-    <span>Капитан: <b>Элшодбек Вафаев</b></span><span class="dot"></span>
-    <span>Своя гипотеза · Finance &amp; Everyday Life</span>
+<!-- ==================== ШАПКА ==================== -->
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">WI</span>
+      Work India
+    </a>
+    <nav class="topnav" aria-label="Разделы">
+      <a href="#path">Путь</a>
+      <a href="#proto">Прототип</a>
+      <a href="#diff">Отличия</a>
+      <a href="#team">Команда</a>
+      <a class="nav-keep" href="application.html">Заявка</a>
+    </nav>
+    <button class="theme-toggle" type="button" id="themeBtn" aria-label="Переключить тёмную тему">
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg>
+    </button>
   </div>
-  <h1>Полное сопровождение специалиста<br>из Индии — <span class="hl">от вакансии до жизни в России</span></h1>
-  <p class="lede">Сегодня человека передают из рук в руки: работная площадка доводит до оффера и теряет, агентство сопровождает документы и отходит. Никто не знает человека целиком.</p>
 </header>
-
-<div class="verdict">
-  <dl class="verdict-grid">
-    <div class="cell"><dt>Обращений в день</dt><dd><span class="big">10–20</span></dd></div>
-    <div class="cell"><dt>Целевая номинация</dt><dd>Высокая частотность<br><span style="color:var(--ink-faint);font-size:13px">1000+ DAU · 25+ обращений</span></dd></div>
-    <div class="cell"><dt>Команда</dt><dd>5 человек</dd></div>
-    <div class="cell"><dt>MVP с пользователями</dt><dd>Неделя 4</dd></div>
-  </dl>
-  <div class="weakspot">
-    <span class="tag">Слабое место</span>
-    <p>Эту аудиторию нельзя купить рекламой. Мы растём через землячества и общежития — начинаем с тех, кто уже в России, и они приводят следующих из Индии. Если канал не сработает, сроки по 1000 DAU сдвинутся.</p>
-  </div>
-</div>
 
 <main>
 
-<section>
-  <p class="q">Какую гипотезу вы выбрали? Зафиксируйте гипотезу по образцу на сайте</p>
-  <div class="duo">
-    <div class="card"><h3>Проблема</h3><p>Специалист из Индии в России каждый день упирается в стену: не понимает начальника смены, не может прочитать трудовой договор, не знает, верно ли начислена зарплата, пропускает сроки документов и теряет на переводах семье. Помощь он получает от земляка в чате — случайно, с ошибками и с опозданием.</p></div>
-    <div class="card accented"><h3>Гипотеза</h3><p>ИИ-ассистент ведёт человека по всему пути: пока он в Индии — подбирает вакансии по реальным навыкам, проверяет работодателя, считает реальный доход, объясняет договор до подписания и учит русскому. После приезда тот же ассистент работает каждый день: переводит общение с работодателем, разбирает расчётный лист, следит за сроками, помогает с переводами домой.</p></div>
+<!-- ==================== ГЕРОЙ ==================== -->
+<section class="hero">
+  <div class="shell hero-grid">
+
+    <div>
+      <span class="eyebrow">Ассистент на английском и хинди <b>अंग्रेज़ी और हिंदी</b></span>
+      <h1>Один ассистент на весь путь — от вакансии в Индии до <em>второго года работы в России</em></h1>
+      <p class="hero-lede">
+        Work India читает документы, которые человек не может прочитать сам, объясняет,
+        что от него хочет бригадир, и считает, сколько на самом деле останется на руках
+        после жилья и налогов. Каждый день, а не один раз до оффера.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn--primary" href="#proto">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
+          Смотреть прототип
+        </a>
+        <a class="btn btn--ghost" href="application.html">
+          Читать заявку целиком
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <dl class="hero-facts">
+        <div><dt>Кто пользуется</dt><dd>Специалисты и студенты из Индии</dd></div>
+        <div><dt>Где начинаем</dt><dd>Те, кто уже в России</dd></div>
+        <div><dt>Частота</dt><dd>Каждая смена, а не раз в год</dd></div>
+      </dl>
+    </div>
+
+    <!-- ПОДПИСЬ СТРАНИЦЫ: разрыв между «что он видит» и «что он понимает» -->
+    <div class="gap">
+      <div class="gap-card">
+        <div class="gap-head">
+          <span class="tag">Что он видит</span>
+          <span class="dot-row" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+
+        <div class="scan" aria-label="Фрагмент расчётного листа на русском языке">
+          <div class="scan-title">Расчётный листок · июнь</div>
+          <div class="scan-row"><span>Оплата по часовой ставке</span><span>45 120,00</span></div>
+          <div class="scan-row"><span>Доплата за ночные часы</span><span>4 380,00</span></div>
+          <div class="scan-row mark"><span>Отработано смен</span><span>21</span></div>
+          <div class="scan-row"><span>НДФЛ 13 %</span><span>−6 435,00</span></div>
+          <div class="scan-row"><span>Удержание за общежитие</span><span>−6 500,00</span></div>
+          <div class="scan-row scan-total"><span>К выплате</span><span>36 565,00</span></div>
+        </div>
+
+        <div class="gap-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+          Что он понимает через Work India
+        </div>
+
+        <div class="answer">
+          <p class="answer-line">You were paid for <b>21 shifts</b>. Your roster for June shows <b>23</b>.</p>
+          <p class="answer-line hi">जून में आपकी 23 शिफ़्ट थीं, भुगतान 21 का हुआ है।</p>
+          <p class="answer-line" style="font-size:14.5px;color:var(--ink-2)">
+            ₽6 500 — это удержание за общежитие. По вашему договору оно должно быть
+            фиксированным: сверьте с пунктом 4.2.
+          </p>
+          <div class="flag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 21 20H3Z"/><path d="M12 9.5v4.5M12 17h.01"/></svg>
+            <p><b>Расхождение на 2 смены.</b> Мы подготовили вопрос бригадиру на русском — отправьте одним нажатием.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section>
-  <p class="q">В рамках выбранной гипотезы раскройте суть идеи: для кого (ЦА), какая боль, в каком формате решение</p>
-  <h2>Для кого</h2>
-  <p>Один человек на трёх стадиях, а не три сегмента. Ещё в Индии: ищет вакансию, боится нарваться на недобросовестного работодателя, не понимает, сколько останется на руках. Уже в России: работает или учится здесь сегодня. Работодатели: подключаются, когда есть база проверенных кандидатов.</p>
-  <h2 style="margin-top:34px">Какая боль</h2>
-  <p>Человек живёт в стране, языка которой не знает, внутри системы правил, которую ему никто не объяснил. Цена ошибки высокая: неверно понятый пункт договора или пропущенный срок стоят денег, а иногда и права находиться в стране.</p>
-  <h2 style="margin-top:34px">Формат решения</h2>
-  <div class="claims"><div class="claim"><b>До переезда — пока человек в Индии</b><span>Вакансии на английском и индийских языках с подбором по опыту. Проверка работодателя. Расчёт реального дохода после жилья и налогов — в рупиях и рублях. Подготовка к интервью. Перевод и объяснение договора до подписания. Порядок документов и переезда. Русский с нуля на лексике будущей профессии.</span></div><div class="claim"><b>После переезда — ежедневный ассистент</b><span>Переводчик, который помнит, где человек работает и какой у него график. Разбор расчётного листа: сходится ли со сменами. Календарь сроков по документам. Сравнение способов перевода домой. Бытовая навигация.</span></div><div class="claim"><b>Для работодателей</b><span>База проверенных кандидатов, предварительная оценка квалификации, AI-скрининг, сопровождение массового найма.</span></div><div class="claim"><b>Один профиль на весь путь</b><span>То, что человек рассказал о себе при поиске работы, работает на него потом каждый день на смене.</span></div></div>
+<!-- ==================== ПУТЬ ==================== -->
+<section class="band" id="path">
+  <div class="shell">
+    <div class="sec-head">
+      <span class="tag">Путь пользователя</span>
+      <h2>Четыре стадии, один профиль</h2>
+      <p>Всё, что человек рассказал о себе, когда искал работу, работает на него потом каждый день на смене. Продукт не заканчивается на оффере — там он только начинает приносить пользу.</p>
+    </div>
+
+    <div class="path">
+      <div class="stage">
+        <div class="stage-no"><i aria-hidden="true"></i>Стадия 1 · Индия</div>
+        <h3>Пока он ещё дома</h3>
+        <ul>
+          <li>Вакансии на английском и индийских языках, подбор по реальному опыту</li>
+          <li>Проверка работодателя: что за компания, как оформляет, на что жалуются</li>
+          <li>Реальный доход вместо цифры в объявлении — в рупиях и рублях</li>
+          <li>Тренировка интервью на английском и русском</li>
+          <li>Трудовой договор объясняем до подписания</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-no"><i aria-hidden="true"></i>Стадия 2 · Переезд</div>
+        <h3>Документы и перелёт</h3>
+        <ul>
+          <li>Порядок бумаг: что за чем и в какие сроки</li>
+          <li>Что делать в первые дни по прилёту</li>
+          <li>Русский с нуля на лексике будущей профессии</li>
+          <li>Разбор ситуаций, которые ждут в первую неделю</li>
+        </ul>
+      </div>
+
+      <div class="stage here">
+        <div class="here-flag">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          Отсюда начинаем
+        </div>
+        <div class="stage-no"><i aria-hidden="true"></i>Стадия 3 · Работа</div>
+        <h3>Каждая смена</h3>
+        <ul>
+          <li>Переводчик, который помнит профессию, график и документы</li>
+          <li>Разбор расчётного листа: сходится ли со сменами</li>
+          <li>Календарь сроков по документам — заранее, а не постфактум</li>
+          <li>Готовый вопрос работодателю на русском</li>
+        </ul>
+      </div>
+
+      <div class="stage here">
+        <div class="stage-no"><i aria-hidden="true"></i>Стадия 4 · Жизнь</div>
+        <h3>Вне смены</h3>
+        <ul>
+          <li>Деньги домой: сравнение способов и реальная стоимость перевода</li>
+          <li>Аптека, поликлиника, банк, аренда — без посредника</li>
+          <li>Русский в рабочем контексте, короткими ежедневными подходами</li>
+          <li>Новая работа — уже с историей и подтверждённым опытом внутри</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="path-note">
+      <span class="tag">Почему так</span>
+      <p>Логично было бы начать со стадии 1 — там человек ищет работу и его проще найти. Но он заходит несколько раз за месяцы поиска и исчезает до переезда. Поэтому <b>первыми мы берём тех, кто уже в России сегодня</b>: у них потребность возникает по нескольку раз в день. Стадии 1 и 2 подключаются обратным ходом — через земляка, который уже пользуется.</p>
+    </div>
+  </div>
 </section>
 
-<section>
-  <p class="q">В чём конкурентное преимущество вашей идеи? Чем она будет отличаться от решений, которые уже есть на рынке?</p>
-  <div class="claims"><div class="claim"><b>Один продукт на весь путь вместо цепочки посредников</b><span>Каждое звено сегодня знает только свой кусок. Мы ведём одного пользователя от поиска вакансии до второго года работы — и продукт не заканчивается на оффере, там он только начинает приносить пользу.</span></div><div class="claim"><b>Контекст вместо перевода</b><span>Переводчик переводит слова, но не знает, что у человека сменный график и через две недели истекает документ. Ассистент отвечает не «вот перевод», а «вам сказали выйти в субботу — по вашему графику это переработка».</span></div><div class="claim"><b>Один продукт вместо шести</b><span>Переводчик, чат земляков, банк, госуслуги, работный сайт — ни один не знает про остальные. Мы собираем эти сценарии вокруг одного профиля.</span></div><div class="claim"><b>Заход через тех, кто уже здесь</b><span>Конкуренты бьются за пользователя на этапе поиска работы, где он дорогой и уходит после трудоустройства. Мы берём тех, кому помощь нужна сегодня.</span></div><div class="claim"><b>Финансовый слой как продолжение</b><span>Зарплатный счёт, переводы семье, валютные операции — для этого пользователя не отдельные продукты, а часть той же задачи.</span></div></div>
+<!-- ==================== ПРОТОТИП ==================== -->
+<section class="proto" id="proto">
+  <div class="shell">
+    <div class="sec-head">
+      <span class="tag tag--saffron">Интерфейс</span>
+      <h2>Четыре экрана, которые человек открывает чаще всего</h2>
+      <p>Не разделы меню, а четыре момента, в которых он сегодня остаётся один: расчётный лист, распоряжение бригадира, срок документа и вопрос «сколько останется на руках».</p>
+    </div>
+
+    <div class="screens">
+
+      <!-- ЭКРАН 1 — РАЗБОР РАСЧЁТНОГО ЛИСТА -->
+      <figure class="shot">
+        <div class="phone">
+          <div class="phone-bar">
+            <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            <span class="ttl">Расчётный лист · июнь</span>
+            <span class="lang" aria-hidden="true"><span class="on">EN</span><span>हि</span><span>RU</span></span>
+          </div>
+          <div class="phone-body">
+
+            <div class="photo-chip">
+              <span class="photo-thumb" aria-hidden="true">
+                <svg viewBox="0 0 40 40" width="40" height="40" fill="none" aria-hidden="true">
+                  <rect x="9" y="6" width="22" height="28" rx="2" fill="currentColor" opacity=".14"/>
+                  <path d="M13 12h14M13 16h14M13 20h9M13 24h14M13 28h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".65"/>
+                </svg>
+              </span>
+              <span class="meta">Фото документа<br>распознано · 6 строк</span>
+            </div>
+
+            <div class="docstrip" aria-label="Распознанные строки расчётного листа">
+              <div class="dr"><span>ОПЛАТА ПО ЧАС. СТАВКЕ</span><b>45 120,00</b></div>
+              <div class="dr"><span>НОЧНЫЕ ЧАСЫ</span><b>4 380,00</b></div>
+              <div class="dr bad"><span>ОТРАБОТАНО СМЕН</span><b>21</b></div>
+              <div class="dr"><span>НДФЛ 13 %</span><b>−6 435,00</b></div>
+              <div class="dr"><span>ОБЩЕЖИТИЕ</span><b>−6 500,00</b></div>
+              <div class="dr"><span>К ВЫПЛАТЕ</span><b>36 565,00</b></div>
+              <span class="doc-flag">
+                <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 4v11M12 19h.01"/></svg>
+                не сходится со сменами
+              </span>
+            </div>
+
+            <div class="pcard on-ink">
+              <span class="p-label">Explained for you</span>
+              <p class="p-txt">Paid for <b>21 shifts</b> — your June roster has <b>23</b>. Difference ≈ ₽4 300 before tax.</p>
+              <p class="p-txt p-hi">जून में 23 शिफ़्ट थीं, भुगतान 21 का हुआ।</p>
+            </div>
+
+            <div class="suggest">
+              <span class="p-label">Ask your supervisor — in Russian</span>
+              <p class="p-txt p-ru">«Добрый день! В расчётном листе за июнь стоит 21 смена, а по графику я отработал 23. Подскажите, пожалуйста, как это проверить?»</p>
+              <div class="row">
+                <span class="mini-btn">Скопировать</span>
+                <span class="mini-btn ghost">Изменить</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <figcaption class="shot-cap">
+          <span class="tag">Экран 1 · разбор документа</span>
+          <h3>Расчётный лист, объяснённый на родном языке</h3>
+          <p>Человек фотографирует лист — ассистент разбирает начисления и удержания и сверяет их с графиком, который уже знает из профиля. Если число смен не сходится, это видно сразу. И главное: продукт не останавливается на «вот перевод» — он готовит вопрос работодателю по-русски, потому что задать его человек всё равно не может.</p>
+          <p>Та же функция работает и до переезда: трудовой договор объясняем <b>до</b> подписания.</p>
+        </figcaption>
+      </figure>
+
+      <!-- ЭКРАН 2 — КОНТЕКСТНЫЙ ПЕРЕВОДЧИК -->
+      <figure class="shot">
+        <div class="phone">
+          <div class="phone-bar">
+            <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            <span class="ttl">Что сказал бригадир</span>
+            <span class="lang" aria-hidden="true"><span class="on">EN</span><span>हि</span></span>
+          </div>
+          <div class="phone-body">
+
+            <div class="bubble them">
+              <span class="src">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.2"/></svg>
+                Фото объявления на стенде
+              </span>
+              <span class="p-ru">«Иванов — завтра, 12.07, выходишь в субботу вместо четверга. Наряд возьмёшь у Петровича до начала смены.»</span>
+            </div>
+
+            <div class="bubble us">
+              <span class="src">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-3"/><path d="M4 12v5a2 2 0 0 0 2 2h1"/></svg>
+                Work India
+              </span>
+              You are moved to Saturday instead of Thursday. Pick up your work order from Petrovich before the shift starts.
+              <p class="p-txt p-hi" style="margin-top:8px">आपकी शिफ़्ट गुरुवार से शनिवार कर दी गई है।</p>
+            </div>
+
+            <div class="pcard">
+              <span class="p-label">Что это значит именно для вас</span>
+              <p class="p-txt">По вашему графику <b>суббота — выходной</b>. Замена дня — не переработка сама по себе, но если четверг останется рабочим, часы за неделю выйдут сверх нормы.</p>
+              <p class="p-txt" style="color:var(--ink-2)">«Наряд» — это задание на смену: где и что вы делаете. Без него на участок не пускают.</p>
+            </div>
+
+            <div class="suggest">
+              <span class="p-label">Ответить по-русски</span>
+              <p class="p-txt p-ru">«Понял, в субботу выйду. Четверг остаётся рабочим или меняется?»</p>
+              <div class="row">
+                <span class="mini-btn">Отправить</span>
+                <span class="mini-btn ghost">Озвучить</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <figcaption class="shot-cap">
+          <span class="tag">Экран 2 · переводчик с контекстом</span>
+          <h3>Не перевод слов, а перевод ситуации</h3>
+          <p>Общий переводчик отдаст подстрочник и слово «наряд» в неверном значении. Ассистент помнит, кем человек работает, какой у него график и что у него за документы, — и отвечает не «вот перевод», а «вам поменяли день, по вашему графику это значит вот что». Фото со стенда и голос на входе, ответ на родном языке и готовая реплика по-русски на выходе.</p>
+        </figcaption>
+      </figure>
+
+      <!-- ЭКРАН 3 — СРОКИ -->
+      <figure class="shot">
+        <div class="phone">
+          <div class="phone-bar">
+            <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            <span class="ttl">Мои сроки</span>
+            <span class="lang" aria-hidden="true"><span class="on">EN</span><span>हि</span></span>
+          </div>
+          <div class="phone-body">
+
+            <div class="pcard" style="padding:6px 14px 8px">
+              <div class="due">
+                <span class="due-ic hot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+                <span>
+                  <span class="due-nm">Оплата патента</span>
+                  <span class="due-dt">ежемесячно · до 14.07</span>
+                </span>
+                <span class="due-chip hot">12 дней</span>
+              </div>
+              <div class="due">
+                <span class="due-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="4" width="15" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h4"/></svg></span>
+                <span>
+                  <span class="due-nm">Миграционный учёт</span>
+                  <span class="due-dt">продление · до 03.09</span>
+                </span>
+                <span class="due-chip">63 дня</span>
+              </div>
+              <div class="due">
+                <span class="due-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 19.5 7v5.5c0 4.2-3 7-7.5 8.5-4.5-1.5-7.5-4.3-7.5-8.5V7Z"/></svg></span>
+                <span>
+                  <span class="due-nm">Полис ДМС</span>
+                  <span class="due-dt">действует до 20.11</span>
+                </span>
+                <span class="due-chip">141 день</span>
+              </div>
+              <div class="due">
+                <span class="due-ic ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+                <span>
+                  <span class="due-nm">Трудовой договор</span>
+                  <span class="due-dt">бессрочный · загружен</span>
+                </span>
+                <span class="due-chip ok">в порядке</span>
+              </div>
+            </div>
+
+            <div class="pcard on-ink">
+              <span class="p-label">Ближайшее · 14 июля</span>
+              <p class="p-txt">Pay the patent fee before <b>14 July</b>. One missed month cancels the document — you cannot pay it later.</p>
+              <p class="p-txt p-hi">एक महीना चूकने पर पेटेंट रद्द हो जाता है।</p>
+            </div>
+
+            <div class="pcard">
+              <span class="p-label">Что для этого нужно</span>
+              <p class="p-txt">Сумма на июль, реквизиты, чек — сохраните фото: его спрашивают при проверке. Напомним 10, 12 и 13 июля.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <figcaption class="shot-cap">
+          <span class="tag">Экран 3 · календарь сроков</span>
+          <h3>Предупреждаем заранее, а не постфактум</h3>
+          <p>Сроки по документам — та боль, где цена ошибки максимальная: пропущенная дата стоит человеку не только денег, но иногда и права находиться в стране. Ассистент собирает даты из загруженных документов сам и ведёт их как обычный календарь — с объяснением, что именно нужно сделать и что будет, если не успеть.</p>
+        </figcaption>
+      </figure>
+
+      <!-- ЭКРАН 4 — РЕАЛЬНЫЙ ДОХОД -->
+      <figure class="shot">
+        <div class="phone">
+          <div class="phone-bar">
+            <svg class="back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            <span class="ttl">Сколько останется на руках</span>
+            <span class="lang" aria-hidden="true"><span class="on">EN</span><span>हि</span></span>
+          </div>
+          <div class="phone-body">
+
+            <div class="pcard">
+              <span class="p-label">Вакансия · сварщик, Подмосковье</span>
+              <div class="income-top">
+                <span class="num">₽52 400</span>
+                <span class="was">в объявлении <s>₽90 000</s></span>
+              </div>
+              <div class="bar" aria-hidden="true">
+                <i style="width:58%;background:var(--cat-a)"></i>
+                <i style="width:13%;background:var(--cat-b)"></i>
+                <i style="width:12%;background:var(--cat-c)"></i>
+                <i style="width:9%;background:var(--cat-d)"></i>
+                <i style="width:8%;background:var(--cat-e)"></i>
+              </div>
+              <div class="legend">
+                <span class="lg"><i class="sw" style="background:var(--cat-a)"></i>Останется на руках<span class="val">52 400</span></span>
+                <span class="lg"><i class="sw" style="background:var(--cat-b)"></i>НДФЛ<span class="val">−11 700</span></span>
+                <span class="lg"><i class="sw" style="background:var(--cat-c)"></i>Общежитие<span class="val">−10 800</span></span>
+                <span class="lg"><i class="sw" style="background:var(--cat-d)"></i>Дорога до участка<span class="val">−7 900</span></span>
+                <span class="lg"><i class="sw" style="background:var(--cat-e)"></i>Еда и связь<span class="val">−7 200</span></span>
+              </div>
+              <div class="rupee"><b>≈ ₹57 600</b> в месяц по курсу на сегодня</div>
+            </div>
+
+            <div class="pcard on-ink">
+              <span class="p-label">Why the number differs</span>
+              <p class="p-txt">₽90 000 in the ad is <b>before tax and before housing</b>. Housing is deducted from your pay by the employer, not paid separately.</p>
+              <p class="p-txt p-hi">विज्ञापन की राशि कर और आवास से पहले की है।</p>
+            </div>
+
+            <div class="suggest">
+              <span class="p-label">Спросить у работодателя до подписания</span>
+              <p class="p-txt p-ru">«Удержание за общежитие фиксированное? Дорога до участка оплачивается компанией?»</p>
+              <div class="row"><span class="mini-btn">В список вопросов</span></div>
+            </div>
+
+          </div>
+        </div>
+
+        <figcaption class="shot-cap">
+          <span class="tag">Экран 4 · реальный доход</span>
+          <h3>Главный вопрос, на который сегодня никто не отвечает честно</h3>
+          <p>Человек принимает решение о переезде по цифре из объявления. Ассистент переводит условия вакансии в понятную картину: что вычтут, кто платит за жильё и дорогу, сколько останется в рублях и в рупиях — с объяснением каждой строки. Тот же расчёт работает и после переезда, когда нужно сравнить текущее место с новым предложением.</p>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <p class="proto-note">Экраны — прототип интерфейса. Суммы, даты и названия на них — примеры для демонстрации сценария, а не данные реальных пользователей.</p>
+  </div>
 </section>
 
-<section>
-  <p class="q">Распишите план работ по неделям (спринтами) от идеи до MVP с первыми пользователями</p>
-  <ol class="sprints"><li class="sprint"><span class="wk">Неделя 1</span><b>Доступ к аудитории и проверка боли</b><span>Выход на землячества, общежития, профильные чаты. 15 интервью: что ломается каждый день и что человек делает сейчас вместо продукта. <em>· Вафаев, Полковникова</em></span></li><li class="sprint"><span class="wk">Неделя 2</span><b>Прототип ядра</b><span>Контекстный переводчик: фото и голос на входе, ответ на английском и хинди с объяснением. Профиль: работа, график, документы. <em>· Клушин, Ярочкин</em></span></li><li class="sprint"><span class="wk">Неделя 3</span><b>Разбор документов</b><span>Договор и расчётный лист: что за график, как считается зарплата, сходится ли со сменами. Работает на обе стадии — и до подписания, и после выхода на работу. <em>· Ярочкин, Клушин</em></span></li><li class="sprint milestone"><span class="wk">Неделя 4</span><b>MVP и первые пользователи — <em>MVP</em></b><span>Календарь сроков, напоминания, аналитика. Запуск на 30–50 человек из сообществ первой недели. <em>· Вся команда</em></span></li><li class="sprint"><span class="wk">Неделя 5</span><b>Данные и вторые 15 интервью</b><span>Какие сценарии вызываются ежедневно, какие ни разу. <em>· Полковникова, Вафаев</em></span></li><li class="sprint"><span class="wk">Неделя 6</span><b>Деньги и фаза «до переезда» — <em>Первые пользователи из Индии</em></b><span>Сравнение способов перевода домой. Первая версия для тех, кто ещё в Индии: расчёт реального дохода и подбор вакансий. <em>· Сердюк, Ярочкин</em></span></li><li class="sprint milestone"><span class="wk">Неделя 7</span><b>Рост через земляков — <em>70+ пользователей</em></b><span>Механика приглашения внутри сообществ, работа с лидерами землячеств. <em>· Полковникова, Сердюк</em></span></li><li class="sprint milestone"><span class="wk">Неделя 8</span><b>Проверка работодателя и стабилизация — <em>Готовность к 1000 DAU</em></b><span>Блок, закрывающий главный страх на стадии до переезда. Нагрузка, качество ответов. <em>· Клушин, Ярочкин</em></span></li></ol>
+<!-- ==================== ОТЛИЧИЯ ==================== -->
+<section id="diff">
+  <div class="shell">
+    <div class="sec-head">
+      <span class="tag">Чем отличается</span>
+      <h2>Работная площадка доводит до оффера и теряет человека</h2>
+      <p>Дальше он остаётся один — с чатом земляков вместо сервиса. Каждое звено знает только свой кусок пути, и никто не знает человека целиком.</p>
+    </div>
+
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th scope="col">Что нужно человеку</th>
+            <th scope="col">Работный сайт</th>
+            <th scope="col">Агентство</th>
+            <th scope="col">Переводчик</th>
+            <th scope="col">Чат земляков</th>
+            <th scope="col" class="us">Work India</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Найти вакансию по реальному опыту</th>
+            <td>частично</td><td>да</td><td>—</td><td>случайно</td>
+            <td class="us">да</td>
+          </tr>
+          <tr>
+            <th scope="row">Понять договор до подписания</th>
+            <td>—</td><td>частично</td><td>подстрочник</td><td>«вроде норм»</td>
+            <td class="us">да</td>
+          </tr>
+          <tr>
+            <th scope="row">Проверить расчётный лист</th>
+            <td>—</td><td>—</td><td>—</td><td>случайно</td>
+            <td class="us">да</td>
+          </tr>
+          <tr>
+            <th scope="row">Не пропустить срок документа</th>
+            <td>—</td><td>до трудоустройства</td><td>—</td><td>с опозданием</td>
+            <td class="us">да</td>
+          </tr>
+          <tr>
+            <th scope="row">Знать контекст: график, профессия, документы</th>
+            <td>—</td><td>—</td><td>—</td><td>—</td>
+            <td class="us">да</td>
+          </tr>
+          <tr>
+            <th scope="row">Остаться рядом после оффера</th>
+            <td>—</td><td>—</td><td>—</td><td>да</td>
+            <td class="us">да</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="edge">
+      <div>
+        <span class="n">Отличие 1</span>
+        <h3>Контекст вместо перевода</h3>
+        <p>Google Translate переводит слова, но не знает, что человек работает по сменному графику и что через две недели у него истекает документ. Ассистент, который держит профиль, отвечает не «вот перевод», а «вам сказали выйти в субботу вместо четверга, по вашему графику это переработка».</p>
+      </div>
+      <div>
+        <span class="n">Отличие 2</span>
+        <h3>Один продукт вместо шести</h3>
+        <p>Сегодня человек собирает свою жизнь из переводчика, чата земляков, банковского приложения, госуслуг и работного сайта. Ни одно из них не знает про остальные. Мы собираем эти сценарии вокруг одного профиля.</p>
+      </div>
+      <div>
+        <span class="n">Отличие 3</span>
+        <h3>Заход через тех, кто уже здесь</h3>
+        <p>Конкуренты бьются за пользователя на этапе поиска работы, где он дорогой и уходит после трудоустройства. Мы берём аудиторию, которая уже в стране и которой помощь нужна сегодня, — она дешевле в привлечении и приводит следующих через земляков.</p>
+      </div>
+      <div>
+        <span class="n">Отличие 4</span>
+        <h3>Финансовый слой как продолжение</h3>
+        <p>Зарплатный счёт, переводы семье, валютные операции, страхование — для этого пользователя это не дополнительные продукты, а часть той же задачи «работать в России и содержать семью дома». Продукт естественно смыкается с банковской инфраструктурой.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <p class="q">Какие функции продукта планируете осуществлять с помощью LLM?</p>
-  <ul class="llm"><li><span class="n">1</span><div><b>Контекстный перевод</b><span>Модель переводит не изолированную фразу, а высказывание с учётом профессии, графика и типа занятости — и объясняет, что это значит и что теперь делать.</span></div></li><li><span class="n">2</span><div><b>Разбор документов</b><span>Договор, расчётный лист, уведомления — состав начислений и удержаний, соответствие сменам, спорные пункты. Здесь модель делает основную работу.</span></div></li><li><span class="n">3</span><div><b>Объяснение правил</b><span>Ответы о документах и сроках на родном языке, со ссылкой на первоисточник и с оговоркой, что это справка, а не юридическая консультация.</span></div></li><li><span class="n">4</span><div><b>Подбор вакансий по смыслу</b><span>Опыт индийского специалиста описан в терминах другого рынка. Модель сопоставляет реальные навыки с требованиями поверх несовпадающих формулировок.</span></div></li><li><span class="n">5</span><div><b>Русский в рабочем контексте</b><span>Ежедневные упражнения на лексике его профессии и на фразах, которые он реально не понял на этой неделе.</span></div></li><li><span class="n">6</span><div><b>Проверка работодателя</b><span>Разрозненные упоминания о компании собираются в связный ответ вместо десяти вкладок на незнакомом языке.</span></div></li><li><span class="n">7</span><div><b>Расчёт реального дохода</b><span>Сколько останется на руках после жилья, налогов и обязательных расходов — в рупиях и рублях, с объяснением каждой строки.</span></div></li></ul>
-</section>
+<!-- ==================== КОМАНДА ==================== -->
+<section id="team">
+  <div class="shell">
+    <div class="sec-head">
+      <span class="tag">Команда</span>
+      <h2>Пять человек, которые уже доводили продукт до работающего интерфейса</h2>
+      <p>Роли распределены и проверены на совместном проекте — не собраны под заявку.</p>
+    </div>
 
-<section>
-  <p class="q">Сколько у вас человек в команде? Ранее вы уже работали такой командой?</p>
-  <div class="team"><div class="member"><div class="role">DS · продукт</div><div class="nm">Дмитрий Ярочкин</div><div class="gh">github.com/yafufig</div></div><div class="member"><div class="role">Разработка</div><div class="nm">Артём Клушин</div><div class="gh">github.com/arklual</div></div><div class="member"><div class="role">Продукт · аналитика</div><div class="nm">Мария Полковникова</div></div><div class="member"><div class="role">Маркетинг · экономика</div><div class="nm">Марк Сердюк</div></div><div class="member"><div class="role">Продукт · бизнес-анализ</div><div class="nm">Элшодбек Вафаев</div></div></div>
-  <p class="note">Этим же составом мы работали над JOIN — Telegram Mini App для поиска компании под мероприятия: от исследования проблемы до работающего прототипа с регистрацией, лентой событий с фильтрами, подбором собеседника и чатами.</p>
+    <div class="team">
+      <div class="mem">
+        <span class="role">CPO · капитан</span>
+        <span class="nm">Элшодбек<br>Вафаев</span>
+        <span class="fn">Продуктовая и бизнес-аналитика. Исследование ЦА, работа с сообществами.</span>
+        <span class="gh">—</span>
+      </div>
+      <div class="mem">
+        <span class="role">CAIO</span>
+        <span class="nm">Дмитрий<br>Ярочкин</span>
+        <span class="fn">Data Science и продукт. Модели разбора документов и контекстного перевода.</span>
+        <span class="gh"><a href="https://github.com/yafufig">github.com/yafufig</a></span>
+      </div>
+      <div class="mem">
+        <span class="role">CTO</span>
+        <span class="nm">Артём<br>Клушин</span>
+        <span class="fn">Разработка. Приложение, инфраструктура, сборка MVP.</span>
+        <span class="gh"><a href="https://github.com/arklual">github.com/arklual</a></span>
+      </div>
+      <div class="mem">
+        <span class="role">CVO</span>
+        <span class="nm">Мария<br>Полковникова</span>
+        <span class="fn">Продукт и аналитика. Интервью с ЦА, метрики, удержание.</span>
+        <span class="gh">—</span>
+      </div>
+      <div class="mem">
+        <span class="role">CFO</span>
+        <span class="nm">Марк<br>Сердюк</span>
+        <span class="fn">Маркетинг и юнит-экономика. Каналы роста, стоимость привлечения.</span>
+        <span class="gh">—</span>
+      </div>
+    </div>
+
+    <div class="join">
+      <span class="tag">Совместный проект</span>
+      <div>
+        <p><b>JOIN — Telegram Mini App,</b> доведённый этим же составом до работающего прототипа: от исследования проблемы до интерфейса, которым можно пользоваться. Это подтверждается экранами продукта, а не заявлениями.</p>
+        <ul>
+          <li>регистрация с интересами</li>
+          <li>лента событий с фильтрами</li>
+          <li>подбор напарника</li>
+          <li>чаты с подсказками</li>
+          <li>переход к покупке билета</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- СЮДА: названия хакатонов с местами и акселераторов -->
+
+  </div>
 </section>
 
 </main>
 
 <footer>
-  Заявка на конкурс Sber500xDisrupt · Трек 1 · капитан Элшодбек Вафаев · Work India
+  <div class="shell foot">
+    <p>
+      Work India · сопровождение специалиста из Индии<br>
+      Заявка на Sber500xDisrupt, Трек 1 · капитан Элшодбек Вафаев<br>
+      Гипотеза своя · Finance &amp; Everyday Life
+    </p>
+    <span class="go">
+      <a href="application.html">
+        Развёрнутые ответы анкеты
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </span>
+  </div>
 </footer>
-</div>
+
+<script>
+  (function(){
+    var btn = document.getElementById('themeBtn');
+    if(!btn) return;
+    function current(){
+      var t = document.documentElement.getAttribute('data-theme');
+      if(t === 'dark' || t === 'light') return t;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    btn.addEventListener('click', function(){
+      var next = current() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try{ localStorage.setItem('wi-theme', next); }catch(e){}
+      btn.setAttribute('aria-label', next === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему');
+    });
+  })();
+</script>
 </body>
 </html>
