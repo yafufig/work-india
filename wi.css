@@ -1622,7 +1622,7 @@ table.matrix tbody tr:hover{background:var(--card-2)}
   margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
   overflow:hidden;box-shadow:var(--shadow-1);
 }
-.who img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:50% 20%;filter:saturate(.9)}
+.who img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 34%;filter:saturate(.9)}
 .who figcaption{padding:15px 17px 17px;font-size:13.5px;line-height:1.5;color:var(--ink-2)}
 .who figcaption b{
   display:block;font-family:var(--mono);font-weight:500;font-size:9.5px;letter-spacing:.15em;
