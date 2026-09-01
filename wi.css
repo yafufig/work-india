@@ -1,5 +1,5 @@
 /* ============================================================
-   Work India — визуальная система
+   Первая зарплата (First Salary) — визуальная система
    Палитра: манильская бумага (документ) + индиго (краситель)
             + шафран (акцент) + печатный зелёный (подтверждение)
    Шрифты:  Rubik (дисплей) · Onest (текст) · IBM Plex Mono (данные)
@@ -156,13 +156,7 @@ p:last-child{margin-bottom:0}
   max-width:var(--measure);margin:0 auto;padding:12px 28px;
   display:flex;align-items:center;gap:18px;
 }
-.brand{display:flex;align-items:center;gap:11px;white-space:nowrap;text-decoration:none;color:var(--ink);font-weight:600;font-family:var(--display);letter-spacing:-.02em}
-.brand-mark{
-  width:30px;height:30px;flex:none;border-radius:9px;
-  background:var(--indigo);display:grid;place-items:center;
-  color:var(--marigold);font-family:var(--display);font-weight:700;font-size:14px;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
-}
+/* .brand и .brand-mark заданы в блоке «ЛОГОТИП» ниже */
 .topnav{margin-left:auto;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .topnav a{
   font-size:14.5px;color:var(--ink-2);text-decoration:none;
@@ -1031,8 +1025,6 @@ footer{border-top:1px solid var(--line);padding:44px 0 60px;margin-top:20px}
 .theme-toggle{transition:color .2s ease,border-color .2s ease,transform .2s cubic-bezier(.34,1.3,.64,1)}
 .theme-toggle:hover{transform:rotate(-14deg)}
 .theme-toggle svg{transition:transform .3s cubic-bezier(.34,1.3,.64,1)}
-.brand-mark{transition:transform .3s cubic-bezier(.34,1.4,.64,1)}
-.brand:hover .brand-mark{transform:rotate(-7deg) scale(1.06)}
 .mem{transition:transform .25s cubic-bezier(.22,1,.36,1), background .25s ease}
 .mem:hover{transform:translateY(-3px);background:var(--card-2)}
 .edge > div{transition:transform .25s cubic-bezier(.22,1,.36,1), background .25s ease}
@@ -1446,4 +1438,266 @@ table.matrix tbody tr:hover{background:var(--card-2)}
 @media (max-width:1080px){
   .stage.here::before,.stage.here::after{display:none}
   .here-flag{position:static;margin-bottom:12px}
+}
+
+/* ============================================================
+   ЛОГОТИП «ПЕРВАЯ ЗАРПЛАТА»
+   Знак: индиговая плашка, кремовая «1», под ней расчётная линия
+   календулы — строка итога расчётного листка. Словесный знак
+   несёт ту же линию и дорастает по наведению.
+   ============================================================ */
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand-mark{
+  width:32px;height:32px;flex:none;display:block;border-radius:9px;
+  transition:transform .32s cubic-bezier(.34,1.4,.64,1);
+}
+.lg-tile{fill:var(--indigo)}
+.lg-ink{stroke:#F3EFE4}
+.lg-rule{stroke:var(--marigold);fill:none}
+.brand:hover .brand-mark{transform:rotate(-6deg) scale(1.05)}
+.brand-word{
+  position:relative;font-family:var(--display);font-weight:600;font-size:17.5px;
+  letter-spacing:-.032em;line-height:1;padding-bottom:7px;white-space:nowrap;color:var(--ink);
+}
+.brand-word::after{
+  content:"";position:absolute;left:1px;bottom:0;width:32px;height:2px;border-radius:1px;
+  background:var(--saffron);
+  transition:width .34s cubic-bezier(.22,1,.36,1);
+}
+.brand:hover .brand-word::after{width:calc(100% - 2px)}
+
+.foot-brand{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+.foot-brand .brand-mark{width:36px;height:36px}
+.foot-brand .nm{
+  display:block;font-family:var(--display);font-weight:600;font-size:19px;
+  letter-spacing:-.032em;line-height:1.05;color:var(--ink);
+}
+.foot-brand .lat{
+  display:block;font-family:var(--mono);font-weight:400;font-size:9.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--saffron);margin-top:5px;
+}
+@media (max-width:420px){
+  .brand-word{font-size:15.5px}
+  .brand-mark{width:28px;height:28px}
+}
+
+/* ============================================================
+   ТРИ СТЕНЫ — фотокарточки
+   ============================================================ */
+.walls{background:var(--paper)}
+.wall-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:8px;
+}
+.wall{
+  margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  overflow:hidden;box-shadow:var(--shadow-1);display:flex;flex-direction:column;
+  transition:transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s ease;
+}
+.wall:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.wall-ph{position:relative;display:block;background:var(--paper-deep)}
+.wall-ph img{
+  display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;
+  filter:saturate(.88) contrast(1.03);
+}
+.wall-ph::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(27,36,80,.06), rgba(27,36,80,.34));
+  pointer-events:none;
+}
+.wall-n{
+  position:absolute;left:14px;bottom:13px;z-index:2;
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:#F6EFE0;background:rgba(20,24,43,.55);backdrop-filter:blur(4px);
+  border-radius:99px;padding:5px 11px;
+}
+.wall figcaption{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+.wall h3{font-size:19px;letter-spacing:-.028em;line-height:1.2;margin-bottom:10px}
+.wall p{font-size:14.5px;line-height:1.5;color:var(--ink-2);margin:0}
+.wall .said{
+  margin-top:14px;padding-top:13px;border-top:1px solid var(--line-soft);
+  font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ink-3);line-height:1.55;
+}
+.wall .said b{color:var(--saffron);font-weight:500}
+@media (max-width:960px){.wall-grid{grid-template-columns:1fr;gap:18px}
+  .wall-ph img{aspect-ratio:16/9}}
+
+/* ============================================================
+   ЗАКРЫВАЮЩАЯ ПОЛОСА — фотография и то же действие
+   ============================================================ */
+.closer{padding:0}
+.closer-in{
+  position:relative;border-radius:var(--r-lg);overflow:hidden;
+  min-height:400px;display:flex;align-items:flex-end;
+  background:var(--indigo);
+}
+.closer-in img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:72% 50%;filter:saturate(.85);
+}
+.closer-in::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg, rgba(14,18,34,.96) 0%, rgba(17,22,48,.9) 42%, rgba(17,22,48,.22) 100%);
+}
+.closer-txt{position:relative;z-index:2;padding:44px 44px 46px;max-width:640px}
+.closer-txt .tag{display:block;margin-bottom:14px;color:var(--marigold)}
+.closer-txt h2{color:#F5F1E6;font-size:clamp(26px,3.2vw,38px);letter-spacing:-.038em}
+.closer-txt p{margin-top:16px;font-size:17px;line-height:1.5;color:#C7CCE6;max-width:44em}
+.closer-txt .btn{margin-top:26px}
+.closer-txt .btn--primary{background:var(--marigold);color:#1B1204}
+.closer-txt .btn--primary:hover{background:#FFC168;color:#1B1204}
+@media (max-width:760px){
+  .closer-in{min-height:0}
+  .closer-txt{padding:30px 24px 32px}
+  .closer-in::after{background:linear-gradient(180deg, rgba(14,18,34,.82) 0%, rgba(17,22,48,.96) 46%)}
+}
+
+/* ============================================================
+   НОВЫЕ ЭКРАНЫ: лента вакансий · проверка · деньги домой
+   ============================================================ */
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1px}
+.filters i{
+  font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;
+  border:1px solid var(--line);border-radius:99px;padding:4px 9px;color:var(--ink-3);
+}
+.filters i.on{background:var(--indigo);border-color:transparent;color:var(--on-indigo)}
+.vac{
+  border:1px solid var(--line-soft);border-radius:var(--r-md);background:var(--card-2);
+  padding:11px 12px 12px;display:flex;flex-direction:column;gap:7px;
+}
+.vac + .vac{margin-top:0}
+.vac-top{display:flex;align-items:baseline;gap:9px}
+.vac-nm{font-family:var(--display);font-weight:500;font-size:13.5px;letter-spacing:-.02em;line-height:1.2}
+.vac-pay{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--ink);white-space:nowrap}
+.vac-meta{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--ink-3);line-height:1.5}
+.vac-badges{display:flex;gap:6px;flex-wrap:wrap}
+.bdg{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;
+  border-radius:99px;padding:4px 8px;background:var(--card);color:var(--ink-3);
+  border:1px solid var(--line-soft);
+}
+.bdg svg{width:10px;height:10px}
+.bdg.ok{background:var(--seal-bg);color:var(--seal);border-color:transparent}
+.bdg.warn{background:var(--alert-bg);color:var(--alert);border-color:transparent}
+.vac-net{
+  display:flex;align-items:baseline;gap:8px;padding-top:8px;margin-top:1px;
+  border-top:1px dashed var(--line);
+  font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--ink-3);
+}
+.vac-net b{font-family:var(--display);font-size:14px;letter-spacing:-.02em;color:var(--seal);font-weight:600}
+.vac.dim{opacity:.66}
+
+/* деньги домой */
+.fx-amt{display:flex;align-items:baseline;gap:10px;margin-bottom:11px}
+.fx-amt .num{font-family:var(--display);font-weight:600;font-size:24px;letter-spacing:-.035em}
+.fx-amt .sub{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-3)}
+.route{
+  display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline;
+  padding:9px 0;border-bottom:1px solid var(--line-soft);
+}
+.route:last-of-type{border-bottom:0}
+.route .r-nm{font-size:13px;font-weight:500;line-height:1.25}
+.route .r-get{font-family:var(--mono);font-size:12px;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.route .r-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--ink-3)}
+.route .r-fee{font-family:var(--mono);font-size:9.5px;color:var(--ink-3);text-align:right}
+.route.best .r-nm{color:var(--seal)}
+.route.best .r-get{color:var(--seal);font-weight:500}
+.route.best .r-nm::after{
+  content:"выгоднее";margin-left:7px;font-family:var(--mono);font-size:8.5px;
+  letter-spacing:.11em;text-transform:uppercase;background:var(--seal-bg);color:var(--seal);
+  border-radius:99px;padding:2px 7px;vertical-align:1px;
+}
+.fx-delta{
+  margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-3);line-height:1.55;
+}
+.fx-delta b{color:var(--seal);font-family:var(--display);font-size:13px;letter-spacing:-.02em;font-weight:600}
+
+/* --- шапка секции «три стены»: текст и портрет в одном ряду --- */
+.walls-head{
+  display:grid;grid-template-columns:1.3fr .74fr;gap:52px;align-items:start;margin-bottom:38px;
+}
+.walls-head .sec-head{margin-bottom:0;max-width:none}
+.who{
+  margin:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  overflow:hidden;box-shadow:var(--shadow-1);
+}
+.who img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:50% 20%;filter:saturate(.9)}
+.who figcaption{padding:15px 17px 17px;font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.who figcaption b{
+  display:block;font-family:var(--mono);font-weight:500;font-size:9.5px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--saffron);margin-bottom:7px;
+}
+@media (max-width:960px){
+  .walls-head{grid-template-columns:1fr;gap:28px;align-items:start}
+  .who{max-width:460px}
+}
+
+/* Шапка съезжает сверху и обязана вернуться на место: правило входа
+   `.js .topbar[data-enter]` весит больше, чем общее `[data-enter].in`,
+   и без этой строки шапка оставалась за верхним краем навсегда. */
+.js .topbar[data-enter].in{transform:none}
+
+/* --- ряд «экран + разбор»: подпись стояла липко у верха и на 1440
+   оставляла под собой полколонки пустоты. Выравниваем по центру. --- */
+.shot{align-items:center}
+.shot-cap{position:static}
+.rupee b{white-space:nowrap}
+.income-top{flex-wrap:wrap}
+
+/* ============================================================
+   УЗКИЙ ЭКРАН: горизонтальное переполнение
+   Надстрочник — inline-flex, то есть не переносится: его
+   минимальная ширина (409px) задавала ширину всей колонки героя,
+   и документ становился шире вьюпорта на 47px. Разрешаем перенос
+   и снимаем авто-минимум с колонок сетки.
+   ============================================================ */
+.eyebrow{flex-wrap:wrap;row-gap:3px;max-width:100%}
+.hero-grid > *{min-width:0}
+.demo,.demo-frame,.demo-stage{min-width:0;max-width:100%}
+
+/* --- «Деньги домой»: строка маршрута
+   Чип «выгоднее» стоял в одной строке с названием и ломал её пополам.
+   Переносим его во вторую, служебную строку — название остаётся целым. --- */
+.route{grid-template-columns:1fr auto;column-gap:12px}
+.route .r-nm{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.route.best{box-shadow:inset 2px 0 0 var(--seal);padding-left:9px;margin-left:-9px;border-radius:2px}
+.fx-delta{
+  font-family:var(--body);font-size:12.5px;letter-spacing:0;line-height:1.45;color:var(--ink-2);
+}
+.fx-delta b{font-family:var(--display);font-size:14px}
+
+/* --- главный факт первого экрана: число из объявления и число на руки --- */
+.hero-facts .fact-num dd{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.hero-facts .fact-num dd i{
+  font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.hero-facts .fact-num dd b{
+  font-weight:600;color:var(--saffron);position:relative;padding-left:19px;
+}
+.hero-facts .fact-num dd b::before{
+  content:"";position:absolute;left:2px;top:.55em;width:12px;height:2px;border-radius:1px;
+  background:var(--saffron);
+}
+
+/* --- факты первого экрана лендинга: четыре штуки, поэтому сетка 2×2,
+   а не флекс с переносом (переносясь, он ломал вертикальные линейки) --- */
+.hero:not(.hero--form) .hero-facts{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:40px;
+  border-top:1px solid var(--line);
+}
+.hero:not(.hero--form) .hero-facts div{
+  padding:15px 22px 15px 0;margin:0;border-right:0;
+  border-bottom:1px solid var(--line-soft);
+}
+.hero:not(.hero--form) .hero-facts div:nth-child(odd){border-right:1px solid var(--line-soft);padding-right:22px}
+.hero:not(.hero--form) .hero-facts div:nth-child(even){padding-left:22px}
+.hero:not(.hero--form) .hero-facts div:nth-last-child(-n+2){border-bottom:0}
+@media (max-width:560px){
+  .hero:not(.hero--form) .hero-facts{grid-template-columns:1fr}
+  .hero:not(.hero--form) .hero-facts div:nth-child(odd){border-right:0;padding-right:0}
+  .hero:not(.hero--form) .hero-facts div:nth-child(even){padding-left:0}
+  .hero:not(.hero--form) .hero-facts div{border-bottom:1px solid var(--line-soft)}
+  .hero:not(.hero--form) .hero-facts div:last-child{border-bottom:0}
 }

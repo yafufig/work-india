@@ -1,5 +1,5 @@
 /* ============================================================
-   Work India — движение
+   Первая зарплата (First Salary) — движение
    1. Оркестрованный вход первого экрана
    2. Раскрытие по скроллу (IntersectionObserver)
    3. Живой прототип: сценарная машина времени
@@ -46,7 +46,13 @@
     var nodes = document.querySelectorAll('[data-reveal]');
     if (!nodes.length) return;
     if (reduced() || !('IntersectionObserver' in window)) {
-      for (var i = 0; i < nodes.length; i++) nodes[i].classList.add('in');
+      for (var i = 0; i < nodes.length; i++) {
+        // у каскадных сеток дети прячутся отдельно — их тоже надо показать
+        if (nodes[i].getAttribute('data-reveal') === 'stagger') {
+          for (var c = 0; c < nodes[i].children.length; c++) nodes[i].children[c].classList.add('in');
+        }
+        nodes[i].classList.add('in');
+      }
       return;
     }
     var io = new IntersectionObserver(function (entries) {
